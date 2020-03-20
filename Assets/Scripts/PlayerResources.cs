@@ -28,18 +28,17 @@ public class PlayerResources : MonoBehaviour, IEnumerable<Resource>
 
     public void TryCollect(Biome biome)
     {
-        if (biome.resource == null)
+        if (!biome.HasResource)
         {
             return;
         }
 
         foreach (var resource in this)
         {
-            if (biome.resource.GetType() == resource.GetType())
+            if (biome.ResourceType == resource.GetType())
             {
-                float value = biome.resource.Value;
+                float value = biome.Collect();
                 resource.Add(value);
-                biome.resource.Remove(value);
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Buildable : MonoBehaviour
+public abstract class Buildable : MonoBehaviour
 {
     [SerializeField]
     private List<BuildableStep> steps;
