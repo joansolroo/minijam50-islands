@@ -28,21 +28,36 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        currentBiome = collision.transform.GetComponent<Biome>();
+        EnterBiome(collision);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TryUpgradeBuildable(collision);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        ExitBiome(collision);
+    }
+
+    private void TryUpgradeBuildable(Collider2D collision)
     {
         var buildable = collision.transform.GetComponent<Buildable>();
         if (buildable != null)
         {
             var value = resources.Wood.Value;
-            buildable.AddWood(value);
+            buildable.Upgrade(value);
             resources.Wood.Remove(value);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void EnterBiome(Collision2D collision)
+    {
+        currentBiome = collision.transform.GetComponent<Biome>();
+    }
+
+    private void ExitBiome(Collision2D collision)
     {
         var hitBiome = collision.transform.GetComponent<Biome>();
         if (hitBiome != null && hitBiome == currentBiome)

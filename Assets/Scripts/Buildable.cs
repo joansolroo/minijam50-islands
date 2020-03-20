@@ -11,25 +11,16 @@ public class Buildable : MonoBehaviour
 
     private BuildableStep currentStep;
 
-    public void AddWood(float value)
+    public void Upgrade(float woodValue)
     {
-        wood.Add(value);
+        wood.Add(woodValue);
 
         ActiveCurrentStep();
     }
 
     private void OnValidate()
     {
-        steps.Clear();
-        foreach (Transform child in transform)
-        {
-            var step = child.GetComponent<BuildableStep>();
-            if (step != null)
-            {
-                step.gameObject.SetActive(false);
-                steps.Add(step);
-            }
-        }
+        PopulateSteps();
 
         currentStep = null;
         ActiveCurrentStep();
@@ -41,14 +32,24 @@ public class Buildable : MonoBehaviour
         {
             if (wood.Value >= step.minValue)
             {
-                if (currentStep == null)
+                if (currentStep == null || step.minValue > currentStep.minValue)
                 {
                     SetCurrentStep(step);
                 }
-                else if (step.minValue > currentStep.minValue)
-                {
-                    SetCurrentStep(step);
-                }
+            }
+        }
+    }
+
+    private void PopulateSteps()
+    {
+        steps.Clear();
+        foreach (Transform child in transform)
+        {
+            var step = child.GetComponent<BuildableStep>();
+            if (step != null)
+            {
+                step.gameObject.SetActive(false);
+                steps.Add(step);
             }
         }
     }
