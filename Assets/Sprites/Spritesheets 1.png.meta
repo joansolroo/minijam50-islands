@@ -62,6 +62,18 @@ TextureImporter:
   - first:
       213: -3952663632242837284
     second: cabin
+  - first:
+      213: 736995319316809100
+    second: sand01
+  - first:
+      213: -1394856848861186634
+    second: Spritesheets 1_1
+  - first:
+      213: 8963565952500576284
+    second: Spritesheets 1_2
+  - first:
+      213: -8594175555016263627
+    second: sand02
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -545,7 +557,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -553,6 +565,48 @@ TextureImporter:
       bones: []
       spriteID: cd87f8b5e515529c0800000000000000
       internalID: -3952663632242837284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sand01
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85010196555a3a00800000000000000
+      internalID: 736995319316809100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sand02
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538f8e9ddda5bb880800000000000000
+      internalID: -8594175555016263627
       vertices: []
       indices: 
       edges: []
