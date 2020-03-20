@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         var hitBiome = collision.transform.GetComponent<Biome>();
-        if (hitBiome == currentBiome)
+        if (hitBiome != null && hitBiome == currentBiome)
         {
             currentBiome = null;
         }

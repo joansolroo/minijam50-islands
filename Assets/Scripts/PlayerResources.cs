@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class PlayerResources : MonoBehaviour, IEnumerable<Resource>
 {
-    public Food food;
+    [SerializeField]
+    private Food food;
 
-    public Water water;
+    [SerializeField]
+    private Water water;
 
-    public Wood wood;
+    [SerializeField]
+    private Wood wood;
+
+    public Food Food => food;
+
+    public Water Water => water;
+
+    public Wood Wood => wood;
 
     public IEnumerator<Resource> GetEnumerator()
     {
