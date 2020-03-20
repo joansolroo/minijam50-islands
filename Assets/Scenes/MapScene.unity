@@ -3649,16 +3649,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1923459776}
     m_Modifications:
-    - target: {fileID: 3404127988459822856, guid: fd217d4f66348964a817a685a51b3575,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404127988459822856, guid: fd217d4f66348964a817a685a51b3575,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3404127988459822857, guid: fd217d4f66348964a817a685a51b3575,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3718,11 +3708,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cabin
-      objectReference: {fileID: 0}
-    - target: {fileID: 3404127989957356564, guid: fd217d4f66348964a817a685a51b3575,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd217d4f66348964a817a685a51b3575, type: 3}
