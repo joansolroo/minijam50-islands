@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(PlayerResources))]
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0.1f;
+    public KeyCode collectResource = KeyCode.Space;
     public float jumpForce = 10f;
     public float fallingFriction = 0.05f;
     public bool jumping = false;
@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 velocity;
     private Rigidbody2D body;
+    private PlayerResources resources;
+    private Biome currentBiome;
     private AnimationController animationController;
     private Vector3 direction;
 
@@ -19,12 +21,12 @@ public class PlayerController : MonoBehaviour
     {
         velocity = Vector2.zero;
         body = GetComponent<Rigidbody2D>();
+        resources = GetComponent<PlayerResources>();
         animationController = GetComponent<AnimationController>();
         direction = Vector3.right;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         jumping = !IsGrounded();
         if (!jumping && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z)))
@@ -48,6 +50,10 @@ public class PlayerController : MonoBehaviour
             direction = Input.GetAxis("Horizontal") * Vector3.right;
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
         }
+        if (currentBiome != null && Input.GetKeyDown(collectResource))
+        {
+            resources.TryCollect(currentBiome);
+        }
     }
 
     private bool IsGrounded()
@@ -58,5 +64,45 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = IsGrounded() ? Color.red : Color.white;
         Gizmos.DrawLine(transform.position, transform.position - Vector3.up * distToGround);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        EnterBiome(collision);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TryUpgradeBuildable(collision);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        ExitBiome(collision);
+    }
+
+    private void TryUpgradeBuildable(Collider2D collision)
+    {
+        var buildable = collision.transform.GetComponent<Buildable>();
+        if (buildable != null)
+        {
+            var value = resources.Wood.Value;
+            buildable.Upgrade(value);
+            resources.Wood.Remove(value);
+        }
+    }
+
+    private void EnterBiome(Collision2D collision)
+    {
+        currentBiome = collision.transform.GetComponent<Biome>();
+    }
+
+    private void ExitBiome(Collision2D collision)
+    {
+        var hitBiome = collision.transform.GetComponent<Biome>();
+        if (hitBiome != null && hitBiome == currentBiome)
+        {
+            currentBiome = null;
+        }
     }
 }
