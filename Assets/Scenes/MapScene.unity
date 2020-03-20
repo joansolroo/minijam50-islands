@@ -617,7 +617,7 @@ Transform:
   - {fileID: 543486078}
   - {fileID: 865548576}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198115446
 GameObject:
@@ -820,7 +820,7 @@ Transform:
   - {fileID: 685320017}
   - {fileID: 676021569}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &334819932
 GameObject:
@@ -939,7 +939,7 @@ Transform:
   - {fileID: 3666187}
   - {fileID: 1991456982}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502219985
 GameObject:
@@ -3305,18 +3305,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.23}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.06}
+    oldSize: {x: 0.54, y: 0.52}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.16}
+  m_Size: {x: 0.25, y: 0.46}
   m_EdgeRadius: 0
 --- !u!212 &1592512095
 SpriteRenderer:
@@ -3357,7 +3357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 488566688391327861, guid: 0fc260c077653344580075c64b048284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3376,11 +3376,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592512093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.39, y: 1.83, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: -55.39, y: 1.002, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1592512097
 MonoBehaviour:
@@ -3425,14 +3425,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1592512093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c8f1e082760999438350b506299b9ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 2939f4766d3f9534da4c933ae895cfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomInitialization: 0
-  flipX: 0
-  flipY: 0
-  perFrameTime: 0
-  animations: []
+  sr: {fileID: 0}
+  timeIdle: 0.1
+  animationIdle:
+  - {fileID: 488566688391327861, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -3075536019353721143, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -4685530935682555736, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -918528527723549622, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: 7756962495339633448, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -1440220486855468169, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: 2243597831148524524, guid: 0fc260c077653344580075c64b048284, type: 3}
+  timeWalking: 0.1
+  animationWalking:
+  - {fileID: -4577665862710141424, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -8109947582587491334, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -7668516113645260398, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -8722564506935840151, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: 4304188346102585932, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: 518113845924816117, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -3085995281499922580, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -4566412233575866642, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: -6564529585605657195, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: 1506198777199954439, guid: 0fc260c077653344580075c64b048284, type: 3}
+  timeJumping: 0.1
+  animationJumping: []
+  timeFalling: 0.1
+  animationFalling: []
+  timeAttack: 0.1
+  animationAttack: []
+  timeDying: 0.1
+  animationDying: []
 --- !u!1 &1671344897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,7 +3894,7 @@ Transform:
   - {fileID: 1920441942}
   - {fileID: 27946432}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804676811
 GameObject:
@@ -4217,5 +4242,5 @@ Transform:
   - {fileID: 1093502534}
   - {fileID: 1431109310}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
