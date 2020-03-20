@@ -150,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1804676815}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1240673
 BoxCollider2D:
@@ -206,7 +206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423412450}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27946431
 GameObject:
@@ -236,7 +236,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1780712943}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187674836
 GameObject:
@@ -249,7 +249,8 @@ GameObject:
   - component: {fileID: 187674837}
   - component: {fileID: 187674839}
   - component: {fileID: 187674838}
-  m_Layer: 0
+  - component: {fileID: 187674840}
+  m_Layer: 9
   m_Name: GrassTileMap3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,6 +532,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &187674840
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187674836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &197451679
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,9 +568,9 @@ GameObject:
   m_Component:
   - component: {fileID: 197451683}
   - component: {fileID: 197451682}
-  - component: {fileID: 197451681}
   - component: {fileID: 197451680}
-  m_Layer: 9
+  - component: {fileID: 197451681}
+  m_Layer: 8
   m_Name: GrassBiome3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +601,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -588,7 +615,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 2}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
 --- !u!156049354 &197451682
 Grid:
@@ -614,7 +641,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 187674837}
-  - {fileID: 543486078}
   - {fileID: 865548576}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -647,7 +673,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 502219987}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &219175755
 GameObject:
@@ -744,9 +770,9 @@ GameObject:
   m_Component:
   - component: {fileID: 248474544}
   - component: {fileID: 248474543}
-  - component: {fileID: 248474542}
   - component: {fileID: 248474541}
-  m_Layer: 9
+  - component: {fileID: 248474542}
+  m_Layer: 8
   m_Name: GrassBiome2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +803,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -791,7 +817,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 2}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
 --- !u!156049354 &248474543
 Grid:
@@ -817,7 +843,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 597554671}
-  - {fileID: 685320017}
   - {fileID: 676021569}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -850,7 +875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1804676815}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423412446
 GameObject:
@@ -862,9 +887,9 @@ GameObject:
   m_Component:
   - component: {fileID: 423412450}
   - component: {fileID: 423412449}
-  - component: {fileID: 423412448}
   - component: {fileID: 423412447}
-  m_Layer: 9
+  - component: {fileID: 423412448}
+  m_Layer: 8
   m_Name: EndBiome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +920,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -909,7 +934,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 2}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
 --- !u!156049354 &423412449
 Grid:
@@ -935,7 +960,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 886224467}
-  - {fileID: 1671344898}
   - {fileID: 3666187}
   - {fileID: 1991456982}
   m_Father: {fileID: 0}
@@ -951,9 +975,9 @@ GameObject:
   m_Component:
   - component: {fileID: 502219987}
   - component: {fileID: 502219986}
-  - component: {fileID: 502219988}
   - component: {fileID: 502219989}
-  m_Layer: 9
+  - component: {fileID: 502219988}
+  m_Layer: 8
   m_Name: GrassBiome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +1008,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 892464921}
-  - {fileID: 1094206216}
   - {fileID: 198115447}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -996,77 +1019,6 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502219985}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 2}
-  m_EdgeRadius: 0
---- !u!114 &502219989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502219985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e05d076be506b748b112e4292a28256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeTarget: {fileID: 198115447}
-  cinemachineVirtualCamera: {fileID: 738370698}
---- !u!1 &543486077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 543486078}
-  - component: {fileID: 543486079}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &543486078
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543486077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 197451683}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &543486079
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543486077}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -1084,8 +1036,22 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &502219989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502219985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e05d076be506b748b112e4292a28256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  biomeTarget: {fileID: 198115447}
+  cinemachineVirtualCamera: {fileID: 738370698}
 --- !u!1 &560762917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1063,8 @@ GameObject:
   - component: {fileID: 560762918}
   - component: {fileID: 560762920}
   - component: {fileID: 560762919}
-  m_Layer: 0
+  - component: {fileID: 560762921}
+  m_Layer: 9
   m_Name: StartTileMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1415,6 +1382,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &560762921
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560762917}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &597554670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1419,8 @@ GameObject:
   - component: {fileID: 597554671}
   - component: {fileID: 597554673}
   - component: {fileID: 597554672}
-  m_Layer: 0
+  - component: {fileID: 597554674}
+  m_Layer: 9
   m_Name: GrassTileMap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1708,6 +1702,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &597554674
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597554670}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &676021568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,65 +1756,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 248474544}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &685320016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 685320017}
-  - component: {fileID: 685320018}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &685320017
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685320016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 248474544}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &685320018
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685320016}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
-  m_EdgeRadius: 0
 --- !u!1 &738370697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +1988,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 197451683}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &886224466
 GameObject:
@@ -2038,7 +2001,8 @@ GameObject:
   - component: {fileID: 886224467}
   - component: {fileID: 886224469}
   - component: {fileID: 886224468}
-  m_Layer: 0
+  - component: {fileID: 886224470}
+  m_Layer: 9
   m_Name: EndTileMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2392,6 +2356,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &886224470
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886224466}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &892464920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,7 +2393,8 @@ GameObject:
   - component: {fileID: 892464921}
   - component: {fileID: 892464923}
   - component: {fileID: 892464922}
-  m_Layer: 0
+  - component: {fileID: 892464924}
+  m_Layer: 9
   m_Name: GrassTileMap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2685,6 +2676,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &892464924
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892464920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &994102431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,120 +2821,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1093502533
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1093502534}
-  - component: {fileID: 1093502535}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1093502534
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093502533}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2059424222}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1093502535
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093502533}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
-  m_EdgeRadius: 0
---- !u!1 &1094206215
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1094206216}
-  - component: {fileID: 1094206217}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1094206216
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094206215}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 502219987}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1094206217
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094206215}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
-  m_EdgeRadius: 0
 --- !u!1 &1271315798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,7 +2832,8 @@ GameObject:
   - component: {fileID: 1271315799}
   - component: {fileID: 1271315801}
   - component: {fileID: 1271315800}
-  m_Layer: 0
+  - component: {fileID: 1271315802}
+  m_Layer: 9
   m_Name: WaterTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3211,6 +3115,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1271315802
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271315798}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1344050655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2059424222}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592512093
 GameObject:
@@ -3281,6 +3211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1592512096}
   - component: {fileID: 1592512095}
+  - component: {fileID: 1592512100}
   - component: {fileID: 1592512094}
   - component: {fileID: 1592512098}
   - component: {fileID: 1592512097}
@@ -3305,7 +3236,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03}
+  m_Offset: {x: 0, y: 0.09}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3316,7 +3247,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.94}
+  m_Size: {x: 0.62, y: 0.7}
   m_EdgeRadius: 0
 --- !u!212 &1592512095
 SpriteRenderer:
@@ -3395,7 +3326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6824009deaca848a740dfac09f5d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
+  jumpForce: 272.2
+  movementSmoothing: 0.05
+  jumping: 0
+  distToGround: 0.52
+  velocity: {x: 0, y: 0}
 --- !u!50 &1592512098
 Rigidbody2D:
   serializedVersion: 4
@@ -3406,7 +3342,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1592512093}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -3450,63 +3386,22 @@ MonoBehaviour:
   animationAttack: []
   timeDying: 0.1
   animationDying: []
---- !u!1 &1671344897
-GameObject:
+--- !u!58 &1592512100
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1671344898}
-  - component: {fileID: 1671344899}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1671344898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671344897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 423412450}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1671344899
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671344897}
+  m_GameObject: {fileID: 1592512093}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.24}
   serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
-  m_EdgeRadius: 0
+  m_Radius: 0.25
 --- !u!1 &1748670274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,7 +3413,8 @@ GameObject:
   - component: {fileID: 1748670275}
   - component: {fileID: 1748670277}
   - component: {fileID: 1748670276}
-  m_Layer: 0
+  - component: {fileID: 1748670278}
+  m_Layer: 9
   m_Name: SandTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3800,6 +3696,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1748670278
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748670274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1780712939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3810,9 +3732,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1780712943}
   - component: {fileID: 1780712942}
-  - component: {fileID: 1780712941}
   - component: {fileID: 1780712940}
-  m_Layer: 9
+  - component: {fileID: 1780712941}
+  m_Layer: 8
   m_Name: WaterBiome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3843,7 +3765,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3857,7 +3779,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 2}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
 --- !u!156049354 &1780712942
 Grid:
@@ -3883,7 +3805,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271315799}
-  - {fileID: 1920441942}
   - {fileID: 27946432}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -3898,9 +3819,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1804676815}
   - component: {fileID: 1804676814}
-  - component: {fileID: 1804676813}
   - component: {fileID: 1804676812}
-  m_Layer: 9
+  - component: {fileID: 1804676813}
+  m_Layer: 8
   m_Name: StartBiome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3931,7 +3852,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3945,7 +3866,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 2}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
 --- !u!156049354 &1804676814
 Grid:
@@ -3971,126 +3892,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 560762918}
-  - {fileID: 1866990614}
   - {fileID: 334819933}
   - {fileID: 1240672}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1866990613
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1866990614}
-  - component: {fileID: 1866990615}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1866990614
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866990613}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1804676815}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1866990615
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866990613}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
-  m_EdgeRadius: 0
---- !u!1 &1920441941
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1920441942}
-  - component: {fileID: 1920441943}
-  m_Layer: 8
-  m_Name: BiomeTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1920441942
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920441941}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1780712943}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1920441943
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920441941}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 16, y: 12.8}
-  m_EdgeRadius: 0
 --- !u!1 &1991456981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,7 +3926,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423412450}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1991456983
 BoxCollider2D:
@@ -4158,9 +3964,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2059424222}
   - component: {fileID: 2059424221}
-  - component: {fileID: 2059424220}
   - component: {fileID: 2059424219}
-  m_Layer: 9
+  - component: {fileID: 2059424220}
+  m_Layer: 8
   m_Name: SandBiome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4191,7 +3997,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4205,7 +4011,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 2}
+  m_Size: {x: 16, y: 20}
   m_EdgeRadius: 0
 --- !u!156049354 &2059424221
 Grid:
@@ -4231,7 +4037,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1748670275}
-  - {fileID: 1093502534}
   - {fileID: 1431109310}
   m_Father: {fileID: 0}
   m_RootOrder: 6
