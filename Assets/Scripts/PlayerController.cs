@@ -66,24 +66,20 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position - Vector3.up * distToGround);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        EnterBiome(collision);
+        EnterBiome(other);
+        TryUpgradeBuildable(other);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        TryUpgradeBuildable(collision);
+        ExitBiome(other);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void TryUpgradeBuildable(Collider2D other)
     {
-        ExitBiome(collision);
-    }
-
-    private void TryUpgradeBuildable(Collider2D collision)
-    {
-        var buildable = collision.transform.GetComponent<Buildable>();
+        var buildable = other.transform.GetComponent<Buildable>();
         if (buildable != null)
         {
             var value = resources.Wood.Value;
@@ -92,14 +88,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void EnterBiome(Collision2D collision)
+    private void EnterBiome(Collider2D other)
     {
-        currentBiome = collision.transform.GetComponent<Biome>();
+        currentBiome = other.transform.GetComponent<Biome>();
     }
 
-    private void ExitBiome(Collision2D collision)
+    private void ExitBiome(Collider2D other)
     {
-        var hitBiome = collision.transform.GetComponent<Biome>();
+        var hitBiome = other.transform.GetComponent<Biome>();
         if (hitBiome != null && hitBiome == currentBiome)
         {
             currentBiome = null;
