@@ -8,8 +8,8 @@ public class Map : MonoBehaviour
     public Level level;
     [Header("Generation")]
     [SerializeField] Transform biomeContainer;
-    [SerializeField] Biome startBiome;
-    [SerializeField] Biome endBiome;
+    [SerializeField] public Biome startBiome;
+    [SerializeField] public Biome endBiome;
     [SerializeField] List<Biome> biomeTemplates;
 
     public int startPosition = -57;
@@ -18,28 +18,8 @@ public class Map : MonoBehaviour
 
 
     [Header("Status")]
-    [SerializeField] Biome previousBiome = null;
-    [SerializeField] Biome currentBiome = null;
     [SerializeField] List<Biome> biomes;
     [SerializeField] int seed;
-
-    public Biome CurrentBiome
-    {
-        get { return currentBiome; }
-        set
-        {
-            if (currentBiome != value)
-            {
-                previousBiome = currentBiome;
-                currentBiome = value;
-
-                if(previousBiome!=null && currentBiome == startBiome)
-                {
-                    level.EndDay();
-                }
-            }
-        }
-    }
 
     void Awake()
     {

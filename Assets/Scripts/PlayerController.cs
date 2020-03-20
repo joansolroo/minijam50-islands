@@ -3,19 +3,27 @@
 [RequireComponent(typeof(PlayerResources))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Links")]
+    [SerializeField] Level level;
+    [SerializeField] Map map;
+    [SerializeField] AnimationController animationController;
+    [SerializeField] PlayerResources resources;
+
+    [Header("Controller")] 
+    private Rigidbody2D body;
     public float speed = 0.1f;
     public KeyCode collectResource = KeyCode.Space;
     public float jumpForce = 10f;
     public float fallingFriction = 0.05f;
-    public bool jumping = false;
     public float distToGround;
 
-    private Vector2 velocity;
-    private Rigidbody2D body;
-    private PlayerResources resources;
-    private Biome currentBiome;
-    private AnimationController animationController;
-    private Vector3 direction;
+    [Header("Status")]
+    [SerializeField] Biome previousBiome;
+    [SerializeField] Biome currentBiome;
+
+    [SerializeField] bool jumping = false;
+    [SerializeField] Vector2 velocity;
+    [SerializeField] Vector3 direction;
 
     private void Start()
     {
@@ -68,13 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EnterBiome(other);
         TryUpgradeBuildable(other);
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        ExitBiome(other);
     }
 
     private void TryUpgradeBuildable(Collider2D other)
@@ -88,17 +90,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void EnterBiome(Collider2D other)
+    public void EnterBiome(Biome biome)
     {
-        currentBiome = other.transform.GetComponent<Biome>();
-    }
-
-    private void ExitBiome(Collider2D other)
-    {
-        var hitBiome = other.transform.GetComponent<Biome>();
-        if (hitBiome != null && hitBiome == currentBiome)
+        if (currentBiome != biome)
         {
-            currentBiome = null;
+            previousBiome = currentBiome;
+            currentBiome = biome;
+
+            // if going back to base
+            if (previousBiome != null && currentBiome == map.startBiome)
+            {
+                level.EndDay();
+            }
         }
     }
+
 }

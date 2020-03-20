@@ -23,7 +23,11 @@ public class Biome : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        map.CurrentBiome = this;
-        cinemachineVirtualCamera.Follow = biomeTarget;
+        var player = collision.gameObject.GetComponent<PlayerController>();
+        if (player)
+        {
+            player.EnterBiome(this);
+            cinemachineVirtualCamera.Follow = biomeTarget;
+        }
     }
 }

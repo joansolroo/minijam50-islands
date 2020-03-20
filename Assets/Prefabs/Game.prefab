@@ -691,8 +691,6 @@ MonoBehaviour:
   startPosition: -57
   numberOfBiome: 10
   biomeSpacing: 10
-  previousBiome: {fileID: 0}
-  currentBiome: {fileID: 0}
   biomes: []
   seed: 0
   regenerate: 0
