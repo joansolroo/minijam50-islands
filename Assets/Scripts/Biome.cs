@@ -7,7 +7,7 @@ public class Biome : MonoBehaviour
     public Transform biomeTarget;
     public Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         cinemachineVirtualCamera.Follow = biomeTarget;
     }
