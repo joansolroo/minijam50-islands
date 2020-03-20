@@ -4,10 +4,11 @@
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0.1f;
-    public KeyCode collectResource;
+    public KeyCode collectResource = KeyCode.Space;
 
     private Rigidbody2D body;
     private PlayerResources resources;
+    private Biome currentBiome;
 
     private void Start()
     {
@@ -15,14 +16,27 @@ public class PlayerController : MonoBehaviour
         resources = GetComponent<PlayerResources>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         body.MovePosition(transform.position + Input.GetAxis("Horizontal") * speed * Vector3.right);
 
-        if (Input.GetKey(collectResource))
+        if (currentBiome != null && Input.GetKeyDown(collectResource))
         {
-            // TODO
+            resources.TryCollect(currentBiome);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        currentBiome = collision.transform.GetComponent<Biome>();
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        var hitBiome = collision.transform.GetComponent<Biome>();
+        if (hitBiome == currentBiome)
+        {
+            currentBiome = null;
         }
     }
 }
