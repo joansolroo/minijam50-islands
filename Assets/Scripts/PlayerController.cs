@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Horizontal") > 0f)
-            body.MovePosition(transform.position + speed * Vector3.right);
+        body.MovePosition(transform.position + Input.GetAxis("Horizontal") * speed * Vector3.right);
     }
 }
