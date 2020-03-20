@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         jumping = !IsGrounded();
-        if (!jumping && Input.GetKeyDown(KeyCode.UpArrow))
+        if (!jumping && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z)))
         {
             body.AddForce(new Vector2(0f, jumpForce));
             jumping = true;
