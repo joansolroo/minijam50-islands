@@ -7,7 +7,7 @@ public class Map : MonoBehaviour
     public Biome startBiome;
     public Biome endBiome;
     public List<Biome> biomeList;
-    public Transform biomeContainer;
+    private Transform biomeContainer;
 
     public int startPosition = -57;
     public int numberOfBiome = 3;
@@ -21,6 +21,11 @@ public class Map : MonoBehaviour
         go.transform.localScale = Vector3.one;
         go.transform.localRotation = Quaternion.identity;
         biomeContainer = go.transform;
+
+        foreach(Biome b in biomeList)
+        {
+            b.gameObject.SetActive(false);
+        }
 
         Initialize();
     }
