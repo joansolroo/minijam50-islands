@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 187674839}
   - component: {fileID: 187674838}
   m_Layer: 0
-  m_Name: GrassTileMap
+  m_Name: GrassTileMap3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 197451681}
   - component: {fileID: 197451680}
   m_Layer: 9
-  m_Name: GrassBiome (2)
+  m_Name: GrassBiome3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 248474542}
   - component: {fileID: 248474541}
   m_Layer: 9
-  m_Name: GrassBiome (1)
+  m_Name: GrassBiome2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1427,7 +1427,7 @@ GameObject:
   - component: {fileID: 597554673}
   - component: {fileID: 597554672}
   m_Layer: 0
-  m_Name: GrassTileMap
+  m_Name: GrassTileMap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1592512096}
+  m_Follow: {fileID: 334819933}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -1855,7 +1855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738370697}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.39, y: 1.83, z: -17.32}
+  m_LocalPosition: {x: -57, y: 4.6, z: -17.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 219175756}
@@ -2404,7 +2404,7 @@ GameObject:
   - component: {fileID: 892464923}
   - component: {fileID: 892464922}
   m_Layer: 0
-  m_Name: GrassTileMap
+  m_Name: GrassTileMap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2763,7 +2763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994102431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.39, y: 1.83, z: -17.32}
+  m_LocalPosition: {x: -57, y: 4.6, z: -17.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 769112406}
