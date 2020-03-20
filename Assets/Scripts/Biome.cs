@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Biome : MonoBehaviour
 {
+    public Map map;
     public Transform biomeTarget;
     public Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
 
@@ -22,6 +23,7 @@ public class Biome : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        map.CurrentBiome = this;
         cinemachineVirtualCamera.Follow = biomeTarget;
     }
 }
