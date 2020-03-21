@@ -8,6 +8,7 @@ public class Level : MonoBehaviour
     [SerializeField] DayTime time;
     [SerializeField] PlayerController player;
     [SerializeField] Boat boat;
+    public Camp camp;
     [SerializeField] List<CharacterController> characters;
 
     [Header("HUD")]
@@ -42,9 +43,8 @@ public class Level : MonoBehaviour
     }
     public void StartDay()
     {
-        Debug.Log("Start day "+ currentDay);
         time.GoToNextMorning();
-        player.Rest();
+        //player.Rest();
         morningCover.SetActive(true);
     }
 
@@ -73,11 +73,16 @@ public class Level : MonoBehaviour
     public void EndDay()
     {
         nightCover.SetActive(true);
-        Debug.Log("End of day "+ currentDay);
         ++currentDay;
         time.GoToNight();
         map.Generate(currentDay);
-        Debug.LogWarning("Do this when interacting with the proper object instead");
+        camp.NextDay();
+        player.Rest();
+
+        if (camp.win)
+            OnWin();
+        else if (camp.gameOver)
+            OnLose();
     }
 
     public void RestartLevel()
@@ -93,10 +98,10 @@ public class Level : MonoBehaviour
 
     public void OnLose()
     {
-        Debug.Log("Win");
+        Debug.Log("Lose");
     }
     public void OnWin()
     {
-        Debug.Log("Lose");
+        Debug.Log("Win");
     }
 }

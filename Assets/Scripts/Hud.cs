@@ -14,8 +14,8 @@ public class Hud : MonoBehaviour
     public Boat boat;
     public Text boatText;
 
-    [Header("PlayerResources")]
-    public PlayerResources playerResources;
+    [Header("Resources")]
+    public Camp camp;
 
     public Text foodText;
 
@@ -41,7 +41,7 @@ public class Hud : MonoBehaviour
     private void UpdatePlayerResources()
     {
         staminaText.text = $"Stamina: {player.Stamina}";
-        foodText.text = $"Food: {playerResources.Food}";
-        woodText.text = $"Wood: {playerResources.Wood}";
+        foodText.text = $"Food: {camp.GetFood()}";
+        woodText.text = $"Wood: {camp.GetWood()}";
     }
 }

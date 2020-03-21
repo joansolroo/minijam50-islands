@@ -17,7 +17,7 @@ public class Follower : MonoBehaviour
     public float distToGround;
     public bool goToBase = false;
 
-    FireCamp fireCamp;
+    //FireCamp fireCamp;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class Follower : MonoBehaviour
         animationController = GetComponent<AnimationController>();
         target = transform.position;
         animationController.timeIdle += Random.Range(-0.03f, 0.03f);
-        fireCamp = FireCamp.main;
+        //fireCamp = FireCamp.main;
     }
     
     void Update()
@@ -61,7 +61,7 @@ public class Follower : MonoBehaviour
             if(goToBase)
             {
                 goToBase = false;
-                fireCamp.Get(pile);
+                //fireCamp.Get(pile);
             }
         }
         else

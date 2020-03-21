@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour
         if (followers)
         {
             Stamina += followers.AvailableCount();
+            followers.ResetPath();
         }
         else
         {

@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c84ed70aabb79440810828400846f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   stackIndex: 0
   initPosition: {x: 0, y: 0, z: 0}
   cooldown: 0
@@ -274,6 +275,7 @@ MonoBehaviour:
   - {fileID: 4453048044773500652, guid: 6c4ef300e5b0ef74e82bfe159c528b4e, type: 3}
   - {fileID: 8749289246111096086, guid: 6c4ef300e5b0ef74e82bfe159c528b4e, type: 3}
   - {fileID: -5064090836981169606, guid: 6c4ef300e5b0ef74e82bfe159c528b4e, type: 3}
+  resources: []
 --- !u!82 &1782008288576010412
 AudioSource:
   m_ObjectHideFlags: 0
@@ -442,7 +444,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -943318867982752447, guid: 3710809c1afecf644b0737b639071b70,
     type: 3}
   m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}

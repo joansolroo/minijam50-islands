@@ -43,11 +43,8 @@ public class Camp : MonoBehaviour
                 resPile.Clear();
             }
 
-            int woodCount = campInventory.ContainsKey("Wood") ? campInventory["Wood"] : 0;
-            int foodCount = campInventory.ContainsKey("Food") ? campInventory["Food"] : 0;
-
-            woodText.text = woodCount.ToString() + "/" + woodGoal.ToString();
-            foodText.text = foodCount.ToString() + "<color=red>-" + folowerManager.GetFollowerCount().ToString() + "</color>";
+            woodText.text = GetWood().ToString() + "/" + woodGoal.ToString();
+            foodText.text = GetFood().ToString() + "<color=red>-" + folowerManager.GetFollowerCount().ToString() + "</color>";
         }
     }
 
@@ -60,8 +57,17 @@ public class Camp : MonoBehaviour
             campInventory["Food"] -= folowerManager.GetFollowerCount();
             if (campInventory["Food"] <= 0)
                 gameOver = true;
-            if (campInventory.ContainsKey("Wood") || campInventory["Wood"] >= woodGoal)
+            if (campInventory.ContainsKey("Wood") && campInventory["Wood"] >= woodGoal)
                 win = true;
         }
+    }
+
+    public int GetFood()
+    {
+        return campInventory.ContainsKey("Food") ? campInventory["Food"] : 0;
+    }
+    public int GetWood()
+    {
+        return campInventory.ContainsKey("Wood") ? campInventory["Wood"] : 0;
     }
 }

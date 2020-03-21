@@ -32,6 +32,10 @@ public class PeopleManager : MonoBehaviour
     {
         return idle.Count;
     }
+    public void ResetPath()
+    {
+        playerPositions.Clear();
+    }
     public void AddFollower()
     {
         if (HasAvailableFollower())
@@ -65,7 +69,10 @@ public class PeopleManager : MonoBehaviour
             agent.AddResource(res);
 
         if(agents.Count == 0)
-            agent.speed = 2f * player.speed;
+        {
+            foreach(Follower f in idle)
+                f.speed = 2.5f * player.speed;
+        }
     }
 
     public void AddNewAgent(Vector3 position)

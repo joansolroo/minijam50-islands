@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313501734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.50600004, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9018713775378621317}
@@ -186,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 7761928651563575396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 9018713775378621317}
   m_RootOrder: 4
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7761928651563575396}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -230,7 +230,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 32028a2e9266c284dba651a0821e1065, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 819d95e220797ac4c9cb907fc0d0b836, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
@@ -517,14 +517,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6824009deaca848a740dfac09f5d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 5
+  maxStamina: 3
   hurt: 0
   fighting: 0
   hasFollowers: 1
   level: {fileID: 0}
   map: {fileID: 0}
   animationController: {fileID: 9018713775378621318}
-  resources: {fileID: 0}
+  resources: {fileID: 9018713775378621312}
   followers: {fileID: 0}
   speed: 5
   jumpForce: 272.2
@@ -540,7 +540,7 @@ MonoBehaviour:
   jumping: 0
   velocity: {x: 0, y: 0}
   direction: {x: 0, y: 0, z: 0}
-  pickedResources: []
+  pickedResources: 
 --- !u!114 &9018713775378621318
 MonoBehaviour:
   m_ObjectHideFlags: 0
