@@ -45,6 +45,8 @@ public class AnimationController : MonoBehaviour
     [Space(10)]
     public float timeDying;
     public Sprite[] animationDying;
+
+    public List<AnimationController> slaves = new List<AnimationController>();
     
     public enum AnimationType
     {
@@ -64,12 +66,25 @@ public class AnimationController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         animationTime = 0.0f;
         animationIndex = 0;
+
+        foreach(AnimationController ac in slaves)
+        {
+            ac.timeAttack = timeAttack;
+            ac.timeDying = timeDying;
+            ac.timeFalling = timeFalling;
+            ac.timeIdle = timeIdle;
+            ac.timeJumping = timeJumping;
+            ac.timeWalking = timeWalking;
+        }
     }
 
     // Update is called once per frame
     public void playAnimation(AnimationType animType, bool flipped = false)
     {
         if (!sr) return;
+
+        foreach (AnimationController ac in slaves)
+            ac.playAnimation(animType, flipped);
 
         Sprite[] animation;
         float t;
