@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ae22287537c4747adeaccde67f08b0, type: 3}
-  m_Name: Resource-0
+  m_Script: {fileID: 11500000, guid: 8e6d3453a4093264297197142cf3a0cc, type: 3}
+  m_Name: Forest5
   m_EditorClassIdentifier: 
+  biomeLevel: {fileID: 11400000, guid: 0197119e48fc4424bb13ab7b2783a9e4, type: 2}
   type: 0

@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
+
+public enum ResourceType
+{
+    Wood, Food, Water
+}
 
 [CreateAssetMenu(fileName = "ResourceData", menuName = "Data/Resource", order = 2)]
 public class ResourceData : ScriptableObject
 {
-    public enum ResourceType
-    {
-        Wood, Food, Water
-    }
     public ResourceType type;
 }
