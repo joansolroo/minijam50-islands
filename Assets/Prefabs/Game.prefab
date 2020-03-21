@@ -2667,6 +2667,9 @@ MonoBehaviour:
   day: 0
   currentTotalTime: 0
   time: 0
+  autoIncrement: 0
+  morningTime: 0.3
+  nightTime: 0.9
 --- !u!1 &5624234171012601085
 GameObject:
   m_ObjectHideFlags: 0

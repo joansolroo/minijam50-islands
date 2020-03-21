@@ -14,29 +14,37 @@ public class DayTime : MonoBehaviour
     [SerializeField] public int day = 0;
     [SerializeField] public float currentTotalTime;
     [SerializeField] float time;
+    [SerializeField] bool autoIncrement = false;
+
+    [SerializeField] float morningTime = 0.3f;
+    [SerializeField] float nightTime = 0.9f;
     public void StartDay()
     {
 
     }
     public void GoToNight()
     {
-        time = day + 0.8f;
+        time = day + nightTime;
     }
     public void GoToNextMorning()
     {
         if (time < (day + 0.3f))
         {
-            time = 0.3f;
+            time = morningTime;
         }
         else
         {
-            time = day + 1.3f;
+            time = day + 1+ morningTime;
         }
     }
 
     private void Update()
     {
-        float newTime = currentTotalTime + Time.deltaTime / dayDuration;
+        float newTime = currentTotalTime ;
+        if (autoIncrement)
+        {
+            newTime += Time.deltaTime / dayDuration;
+        }
         if (newTime < time)
         {
             newTime = Mathf.MoveTowards(newTime, time, catchUpSpeed * Time.deltaTime);
