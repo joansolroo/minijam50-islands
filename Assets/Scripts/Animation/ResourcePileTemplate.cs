@@ -61,7 +61,8 @@ public class ResourcePileTemplate : MonoBehaviour
             }
             animationTime += Time.deltaTime;
         }
-        else if (destroy)
+
+        if (destroy)
         {
             velocity += -9.81f * Time.deltaTime * Vector3.up;
             transform.localPosition += velocity * Time.deltaTime;
