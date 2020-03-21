@@ -74,6 +74,18 @@ TextureImporter:
   - first:
       213: -8594175555016263627
     second: sand02
+  - first:
+      213: 4211232160738357198
+    second: TopWater0
+  - first:
+      213: 1714509140613000666
+    second: TopWater1
+  - first:
+      213: 8636362742256765994
+    second: TopWater2
+  - first:
+      213: 5440619614676959070
+    second: TopWater3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -599,7 +611,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -607,6 +619,90 @@ TextureImporter:
       bones: []
       spriteID: 538f8e9ddda5bb880800000000000000
       internalID: -8594175555016263627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopWater0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 14
+        width: 16
+        height: 2
+      alignment: 9
+      pivot: {x: 0.5, y: -3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecfa28f865d417a30800000000000000
+      internalID: 4211232160738357198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopWater1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 14
+        width: 16
+        height: 2
+      alignment: 9
+      pivot: {x: 0.5, y: -3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adde562caf82bc710800000000000000
+      internalID: 1714509140613000666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopWater2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 14
+        width: 16
+        height: 2
+      alignment: 9
+      pivot: {x: 0.5, y: -3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c02ab18268ad770800000000000000
+      internalID: 8636362742256765994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopWater3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 14
+        width: 16
+        height: 2
+      alignment: 9
+      pivot: {x: 0.5, y: -3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5fb7d2c6b6f08b40800000000000000
+      internalID: 5440619614676959070
       vertices: []
       indices: 
       edges: []

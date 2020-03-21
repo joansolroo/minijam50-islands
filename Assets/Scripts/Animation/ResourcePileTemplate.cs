@@ -15,11 +15,13 @@ public class ResourcePileTemplate : MonoBehaviour
     public float targetAngle = 0f;
 
     public AnimationCurve speedAmplitude;
+    public AnimationCurve curve;
 
     void Start()
     {
         cooldown = Random.Range(0.5f, 1f);
         initPosition = transform.localPosition;
+        t = Random.Range(0f, 1f);
     }
     
     void Update()
@@ -28,15 +30,9 @@ public class ResourcePileTemplate : MonoBehaviour
         float amplitude = speedAmplitude.Evaluate(Mathf.Abs(speed));
 
         t += amplitude * Time.deltaTime;
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, initPosition + 0.3f * amplitude * displacementTarget, 0.03f * amplitude * Time.deltaTime);
-        transform.localEulerAngles = Vector3.MoveTowards(transform.localEulerAngles, amplitude * new Vector3(0, 0, targetAngle), 50f * amplitude * Time.deltaTime);
-
-        if(t >= cooldown)
-        {
+        if (t >= 1f)
             t = 0f;
-            displacementTarget = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-            targetAngle = 0; // Random.Range(-20f, 20f);
-            cooldown = Random.Range(0.5f, 1f);
-        }
+
+        transform.localPosition = new Vector3(initPosition.x - 0.1f * Mathf.Pow(2, initPosition.y) * speed, initPosition.y * (1f + 0.1f * amplitude * (1f - 2f * curve.Evaluate(t))), initPosition.z);
     }
 }
