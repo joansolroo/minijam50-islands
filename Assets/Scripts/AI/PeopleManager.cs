@@ -58,6 +58,18 @@ public class PeopleManager : MonoBehaviour
         if(agents.Count == 0)
             agent.speed = 2f * player.speed;
     }
+
+    public void AddNewAgent(Follower newAgent)
+    {
+        newAgent.transform.parent = idleContainer;
+        idle.Add(newAgent);
+
+        newAgent.target = boat.position;
+        newAgent.goToBase = true;
+
+        if (agents.Count == 0)
+            newAgent.speed = 2f * player.speed;
+    }
     private void Update()
     {
         removeCounter += 0.8f * Time.deltaTime;

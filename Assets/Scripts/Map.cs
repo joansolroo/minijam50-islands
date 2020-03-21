@@ -93,7 +93,9 @@ public class Map : MonoBehaviour
             bool hasEnemy = Random.value < 0.5f;
             if (hasEnemy)
             {
-                b.enemy = Instantiate<EnemyController>(enemyTemplate, b.biomeTarget.position, Quaternion.identity, b.transform);
+                Vector3 position = enemyTemplate.transform.position;
+                position.x = b.biomeTarget.position.x;
+                b.enemy = Instantiate<EnemyController>(enemyTemplate, position, Quaternion.identity, b.transform);
                 b.enemy.biome = b;
             }
         }
