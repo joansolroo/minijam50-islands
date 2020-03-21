@@ -17,12 +17,15 @@ public class Follower : MonoBehaviour
     public float distToGround;
     public bool goToBase = false;
 
+    FireCamp fireCamp;
+
     void Start()
     {
         verticalVelocity = 0;
         animationController = GetComponent<AnimationController>();
         target = transform.position;
         animationController.timeIdle += Random.Range(-0.03f, 0.03f);
+        fireCamp = FireCamp.main;
     }
     
     void Update()
@@ -58,7 +61,7 @@ public class Follower : MonoBehaviour
             if(goToBase)
             {
                 goToBase = false;
-                pile.Clear();
+                fireCamp.Get(pile);
             }
         }
         else
@@ -71,7 +74,7 @@ public class Follower : MonoBehaviour
     {
         return Physics2D.Raycast(transform.position, -Vector3.up, distToGround, 1 << LayerMask.NameToLayer("Ground"));
     }
-    public void AddResource(string type)
+    public void AddResource(ResourceType type)
     {
         pile.Add(type);
     }

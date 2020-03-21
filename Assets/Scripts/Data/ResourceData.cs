@@ -6,7 +6,7 @@ using UnityEditor;
 
 public enum ResourceType
 {
-    Wood, Food, People, None
+    Wood, Food, People, Water, None
 }
 
 [CreateAssetMenu(fileName = "ResourceData", menuName = "Data/Resource", order = 2)]

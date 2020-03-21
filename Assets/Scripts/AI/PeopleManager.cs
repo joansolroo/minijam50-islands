@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PeopleManager : MonoBehaviour
 {
+    [SerializeField] Follower followerTemplate;
     [SerializeField] Transform idleContainer;
     [SerializeField] Transform activeContainer;
 
@@ -23,9 +24,17 @@ public class PeopleManager : MonoBehaviour
     {
        
     }
+    public bool HasAvailableFollower()
+    {
+        return idle.Count > 0;
+    }
+    public int AvailableCount()
+    {
+        return idle.Count;
+    }
     public void AddFollower()
     {
-        if (idle.Count > 0)
+        if (HasAvailableFollower())
         {
             int idx = agents.Count;
             var agent = idle[0];
@@ -42,7 +51,7 @@ public class PeopleManager : MonoBehaviour
         }
     }
 
-    public void RemoveFollower(int idx, List<string> resourceToCarry)
+    public void RemoveFollower(int idx, List<ResourceType> resourceToCarry)
     {
         var agent = agents[idx];
         agent.transform.parent = idleContainer;
@@ -52,15 +61,17 @@ public class PeopleManager : MonoBehaviour
         agent.target = boat.position;
         agent.goToBase = true;
 
-        foreach (string res in resourceToCarry)
+        foreach (var res in resourceToCarry)
             agent.AddResource(res);
 
         if(agents.Count == 0)
             agent.speed = 2f * player.speed;
     }
 
-    public void AddNewAgent(Follower newAgent)
+    public void AddNewAgent(Vector3 position)
     {
+        var newAgent = GameObject.Instantiate<Follower>(followerTemplate);
+        newAgent.transform.position = position;
         newAgent.transform.parent = idleContainer;
         idle.Add(newAgent);
 

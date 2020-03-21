@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResourcePileTemplate : MonoBehaviour
 {
+    public ResourceType type;
     public int stackIndex;
     public Vector3 initPosition;
 

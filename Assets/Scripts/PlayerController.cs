@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 velocity;
     [SerializeField] Vector3 direction;
 
-    public List<string> pickedResources = new List<string>();
+    public List<ResourceType> pickedResources = new List<ResourceType>();
 
     public int Stamina { 
         get => stamina;
@@ -90,7 +90,14 @@ public class PlayerController : MonoBehaviour
     }
     public void Rest()
     {
-        Stamina = maxStamina;
+        if (followers)
+        {
+            Stamina += followers.AvailableCount();
+        }
+        else
+        {
+            Stamina = maxStamina;
+        }
     }
 
     public void SetInput(InputData _input)

@@ -16,9 +16,10 @@ public class ResourcePile : MonoBehaviour
     public Sprite[] wood;
     public Sprite[] food;
     public Sprite[] water;
+    public Sprite[] people;
 
     private int stack = 0;
-    private List<ResourcePileTemplate> resources = new List<ResourcePileTemplate>();
+    public List<ResourcePileTemplate> resources = new List<ResourcePileTemplate>();
 
     void Start()
     {
@@ -33,31 +34,39 @@ public class ResourcePile : MonoBehaviour
         hands.enabled = false;
     }
     
-    public void Add(string type)
+    public void Add(ResourceType type)
     {
         //  select sprite
         Sprite[] s = null;
-        if (type == "Wood")
-            s = wood;
-        else if(type == "Food")
-            s = food;
-        else if (type == "Water")
-            s = water;
-        else
-        {
-            s = wood;
-            Debug.LogError("Unknown resource type : " + type);
+        switch (type) {
+            case ResourceType.Wood:
+                s = wood;
+                break;
+            case ResourceType.Food:
+                s = food;
+                break;
+            case ResourceType.Water:
+                s = water;
+                break;
+            case ResourceType.People:
+                s = people;
+                break;
+            default:
+                s = wood;
+                Debug.LogError("Unknown resource type : " + type);
+                break;
         }
 
         //  instantiate
         GameObject go = Instantiate(template);
-        go.name = type;
+        go.name = type.ToString();
         go.transform.parent = container;
         go.transform.localPosition = new Vector3(0, stack * spacing, stack);
         go.transform.localScale = Vector3.one;
         go.transform.localRotation = Quaternion.identity;
 
         ResourcePileTemplate res = go.GetComponent<ResourcePileTemplate>();
+        res.type = type;
         res.sr.sprite = s[0];
         res.animations = s;
         go.SetActive(true);
