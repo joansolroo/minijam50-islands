@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
     [Header("Properties")]
     public int maxStamina = 5;
     public int stamina;
-
+    public bool hurt = false;
+    public bool fighting = false;
     [Header("Links")]
     [SerializeField] Level level;
     [SerializeField] Map map;
@@ -48,6 +49,11 @@ public class PlayerController : MonoBehaviour
         Rest();
     }
 
+    public void EnterBase()
+    {
+        hurt = false;
+        stamina = Mathf.Max(1, stamina);
+    }
     public void Rest()
     {
         stamina = maxStamina;
@@ -96,7 +102,7 @@ public class PlayerController : MonoBehaviour
                 if (resources.TryCollect(currentBiome))
                 {
                     --stamina;
-                    level.StateChanged();
+                    StateChanged();
                 }
             }
         }
@@ -153,7 +159,20 @@ public class PlayerController : MonoBehaviour
             currentBiome = biome;
 
             level.ChangeBiome(previousBiome, currentBiome);
+
+            if (biome.enemy)
+            {
+                Fight(biome.enemy);
+            }
         }
     }
 
+    public void Fight(EnemyController enemy)
+    {
+        enemy.Fight(this);
+    }
+    public void StateChanged()
+    {
+        level.StateChanged();
+    }
 }

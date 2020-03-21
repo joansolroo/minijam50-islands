@@ -14,6 +14,7 @@ public class Level : MonoBehaviour
     [SerializeField] GameObject morningCover;
     [SerializeField] GameObject nightCover;
     [SerializeField] GameObject tiredCover;
+    [SerializeField] GameObject fightCover;
     [SerializeField] GameObject hurtCover;
     [Header("Properties")]
     [SerializeField] int seed;
@@ -49,7 +50,9 @@ public class Level : MonoBehaviour
 
     public void StateChanged()
     {
-        tiredCover.SetActive(player.stamina <= 0);
+        fightCover.SetActive(player.fighting);
+        hurtCover.SetActive(player.hurt);
+        tiredCover.SetActive(!player.hurt && player.stamina <= 0);
     }
     public void ChangeBiome(Biome previousBiome, Biome currentBiome)
     {
@@ -60,7 +63,7 @@ public class Level : MonoBehaviour
 
         if (previousBiome != null && currentBiome == map.startBiome)
         {
-            player.stamina = Mathf.Max(1, player.stamina);
+            player.EnterBase();
             this.EndDay();
         }
         else if (previousBiome == map.startBiome)

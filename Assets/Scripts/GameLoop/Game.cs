@@ -34,10 +34,10 @@ public class Game : MonoBehaviour
 
     public void OnLose()
     {
-        Debug.Log("Win");
+        Debug.Log("Lose");
     }
     public void OnWin()
     {
-        Debug.Log("Lose");
+        Debug.Log("Win");
     }
 }
