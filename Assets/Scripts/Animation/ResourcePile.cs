@@ -30,6 +30,7 @@ public class ResourcePile : MonoBehaviour
         container = go.transform;
 
         audiosource = GetComponent<AudioSource>();
+        hands.enabled = false;
     }
     
     public void Add(string type)
