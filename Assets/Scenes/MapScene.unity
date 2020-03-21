@@ -212,6 +212,99 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9018713774814047717}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &379303568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 379303572}
+  - component: {fileID: 379303571}
+  - component: {fileID: 379303569}
+  - component: {fileID: 379303570}
+  m_Layer: 5
+  m_Name: Boat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &379303569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379303568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 29b05287e96bea74fba7d8ea97f7b696, type: 3}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Boat: 000%'
+--- !u!114 &379303570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379303568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!222 &379303571
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379303568}
+  m_CullTransparentMesh: 0
+--- !u!224 &379303572
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379303568}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1262518345}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 160, y: -102}
+  m_SizeDelta: {x: 300, y: 64}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625862061 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 161090250, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
@@ -712,6 +805,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6824009deaca848a740dfac09f5d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1262518345 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6052311855105117758, guid: 33c075816301cb94e997821faad61c59,
+    type: 3}
+  m_PrefabInstance: {fileID: 2107073344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1344050657 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
@@ -968,6 +1067,16 @@ PrefabInstance:
       propertyPath: playerResources
       value: 
       objectReference: {fileID: 1592512101}
+    - target: {fileID: 6052311855105117890, guid: 33c075816301cb94e997821faad61c59,
+        type: 3}
+      propertyPath: boatText
+      value: 
+      objectReference: {fileID: 379303569}
+    - target: {fileID: 6052311855105117890, guid: 33c075816301cb94e997821faad61c59,
+        type: 3}
+      propertyPath: boat
+      value: 
+      objectReference: {fileID: 5624234171692937220}
     - target: {fileID: 6052311855127809968, guid: 33c075816301cb94e997821faad61c59,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1195,6 +1304,7 @@ MonoBehaviour:
   distToGround: 0.52
   previousBiome: {fileID: 0}
   currentBiome: {fileID: 0}
+  buildable: {fileID: 0}
   input:
     dx: 0
     doJump: 0
@@ -1572,7 +1682,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[13].second.m_AnimationSpeed
-      value: 3.0000002
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1587,12 +1697,12 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[11].second.m_AnimationSpeed
-      value: 3.0000002
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1806,6 +1916,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
+--- !u!114 &5624234171692937220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2034502638252603473, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5624234171692937219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb1a9e8b4e69e04bbc46a070e839258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8252866394139781971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2032,6 +2154,7 @@ MonoBehaviour:
   distToGround: 0.52
   previousBiome: {fileID: 0}
   currentBiome: {fileID: 0}
+  buildable: {fileID: 0}
   input:
     dx: 0
     doJump: 0
@@ -2510,6 +2633,7 @@ MonoBehaviour:
   distToGround: 0.52
   previousBiome: {fileID: 0}
   currentBiome: {fileID: 0}
+  buildable: {fileID: 0}
   input:
     dx: 0
     doJump: 0
@@ -2759,6 +2883,7 @@ MonoBehaviour:
   distToGround: 0.52
   previousBiome: {fileID: 0}
   currentBiome: {fileID: 0}
+  buildable: {fileID: 0}
   input:
     dx: 0
     doJump: 0

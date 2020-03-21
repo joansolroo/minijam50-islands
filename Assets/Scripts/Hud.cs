@@ -9,6 +9,11 @@ public class Hud : MonoBehaviour
     [Header("Player")]
     public PlayerController player;
     public Text staminaText;
+
+    [Header("Player")]
+    public Boat boat;
+    public Text boatText;
+
     [Header("PlayerResources")]
     public PlayerResources playerResources;
 
@@ -20,6 +25,8 @@ public class Hud : MonoBehaviour
 
     private void LateUpdate()
     {
+        boatText.text = "Boat:"+(int)(boat.progress*100)+'%';
+
         UpdateDayTime();
         UpdatePlayerResources();
     }

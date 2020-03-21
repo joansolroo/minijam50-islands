@@ -25,12 +25,13 @@ public class PlayerController : MonoBehaviour
     public struct InputData
     {
         public float dx;
-        public bool doJump ;
+        public bool doJump;
         public bool doInteract;
     }
     [Header("Status")]
     [SerializeField] Biome previousBiome;
     [SerializeField] Biome currentBiome;
+    [SerializeField] Buildable buildable; //TODO better to use an interactable-style for both biomes and buildings alike
 
     [SerializeField] InputData input;
     [SerializeField] bool jumping = false;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
         direction = Vector3.right;
         Rest();
     }
-    
+
     public void Rest()
     {
         stamina = maxStamina;
@@ -84,12 +85,19 @@ public class PlayerController : MonoBehaviour
             direction = input.dx * Vector3.right;
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
         }
-        if (stamina>0 && currentBiome != null && input.doInteract)
+        if (input.doInteract)
         {
-            if (resources.TryCollect(currentBiome))
+            if (buildable)
             {
-                --stamina;
-                level.StateChanged();
+                TryUpgradeBuildable(buildable);
+            }
+            if (stamina > 0 && currentBiome != null)
+            {
+                if (resources.TryCollect(currentBiome))
+                {
+                    --stamina;
+                    level.StateChanged();
+                }
             }
         }
     }
@@ -108,28 +116,34 @@ public class PlayerController : MonoBehaviour
     public void TransferResources()
     {
         Debug.LogWarning("Implement the transfer of resources to the main stack.");
-        foreach (var resource in resources)
+        /*foreach (var resource in resources)
         {
             resource.Remove(resource.Value);
         }
-        resources.resourcePile.Clear();
-    }
-    /* Deprecated for now:
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        TryUpgradeBuildable(other);
+        resources.resourcePile.Clear();*/
     }
 
-    private void TryUpgradeBuildable(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("entering " + other);
         var buildable = other.transform.GetComponent<Buildable>();
-        if (buildable != null)
+        if (buildable)
         {
-            var value = resources.Wood.Value;
-            buildable.Upgrade(value);
-            resources.Wood.Remove(value);
+            this.buildable = buildable;
         }
-    }*/
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(buildable !=null && collision.gameObject == buildable.gameObject) buildable = null;
+    }
+
+    private void TryUpgradeBuildable(Buildable buildable)
+    {
+        var value = resources.Wood.Value;
+        buildable.Upgrade(value);
+        resources.Wood.Remove(value);
+        Debug.LogWarning("Remove visual item from above character!");
+    }
 
     public void EnterBiome(Biome biome)
     {

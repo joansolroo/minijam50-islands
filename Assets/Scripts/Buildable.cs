@@ -11,6 +11,13 @@ public abstract class Buildable : MonoBehaviour
 
     private BuildableStep currentStep;
 
+    public float progress
+    {
+        get
+        {
+            return wood.Value / (float)wood.Max;
+        }
+    }
     public void Upgrade(float woodValue)
     {
         wood.Add(woodValue);

@@ -7,6 +7,8 @@ public class Level : MonoBehaviour
     [Header("Links")]
     [SerializeField] DayTime time;
     [SerializeField] PlayerController player;
+    [SerializeField] Boat boat;
+    [SerializeField] List<CharacterController> characters;
 
     [Header("HUD")]
     [SerializeField] GameObject morningCover;
