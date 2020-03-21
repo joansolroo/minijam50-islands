@@ -3,6 +3,12 @@ using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
 {
+    [Header("Time")]
+    public DayTime time;
+    public Text timeText;
+    [Header("Player")]
+    public PlayerController player;
+    public Text staminaText;
     [Header("PlayerResources")]
     public PlayerResources playerResources;
 
@@ -14,11 +20,20 @@ public class Hud : MonoBehaviour
 
     private void LateUpdate()
     {
+        UpdateDayTime();
         UpdatePlayerResources();
     }
-
+    private void UpdateDayTime()
+    {
+        int day = time.day;
+        float hours = (time.currentTotalTime - day) * 24;
+        int h = (int)hours;
+        int m = (int)((hours - h) * 60);
+        timeText.text = $"Day: {day}/30\n"+h.ToString("00")+':'+m.ToString("00");
+    }
     private void UpdatePlayerResources()
     {
+        staminaText.text = $"Stamina: {player.stamina}";
         foodText.text = $"Food: {playerResources.Food.Value}";
         waterText.text = $"Water: {playerResources.Water.Value}";
         woodText.text = $"Wood: {playerResources.Wood.Value}";

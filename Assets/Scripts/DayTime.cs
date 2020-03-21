@@ -11,8 +11,8 @@ public class DayTime : MonoBehaviour
     [SerializeField] float dayDuration = 60;
     [SerializeField] float catchUpSpeed = 0.5f;
     [Header("Status")]
-    [SerializeField] int day = 0;
-    [SerializeField] float currentTime;
+    [SerializeField] public int day = 0;
+    [SerializeField] public float currentTotalTime;
     [SerializeField] float time;
     public void StartDay()
     {
@@ -34,25 +34,18 @@ public class DayTime : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        float hours = (currentTime - day) * 24;
-        int h = (int)hours;
-        int m = (int)((hours - h)*60);
-        GUI.Label(new Rect(300, 0, 120, 30), "day:" + (day+1) + " " + (h.ToString("00")+ ":"+m.ToString("00")));
-    }
     private void Update()
     {
-        float newTime = currentTime + Time.deltaTime / dayDuration;
+        float newTime = currentTotalTime + Time.deltaTime / dayDuration;
         if (newTime < time)
         {
             newTime = Mathf.MoveTowards(newTime, time, catchUpSpeed * Time.deltaTime);
         }
 
-        currentTime = newTime;
-        day = (int)currentTime;
+        currentTotalTime = newTime;
+        day = (int)currentTotalTime;
 
-        sky.UpdateColor(currentTime % 1);
+        sky.UpdateColor(currentTotalTime % 1);
         nightVision.color = new Color(1, 1, 1, Mathf.Max(0,4*(0.5f-sky.sprite.color.grayscale)));
     }
 }

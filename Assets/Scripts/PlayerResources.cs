@@ -43,7 +43,7 @@ public class PlayerResources : MonoBehaviour, IEnumerable<Resource>
                 float value = biome.Collect();
                 resource.Add(value);
 
-                resourcePile.Clear();
+                //resourcePile.Clear();
                 for (int i=0; i<(int)value; i++)
                 {
                     resourcePile.Add(resource.GetType().ToString());

@@ -3,12 +3,15 @@
 [RequireComponent(typeof(PlayerResources))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Properties")]
+    public int maxStamina = 5;
+    public int stamina;
+
     [Header("Links")]
     [SerializeField] Level level;
     [SerializeField] Map map;
     [SerializeField] AnimationController animationController;
-    [SerializeField]
-    PlayerResources resources;
+    [SerializeField] PlayerResources resources;
 
     [Header("Controller")]
     private Rigidbody2D body;
@@ -41,8 +44,13 @@ public class PlayerController : MonoBehaviour
         resources = GetComponent<PlayerResources>();
         animationController = GetComponent<AnimationController>();
         direction = Vector3.right;
+        Rest();
     }
     
+    public void Rest()
+    {
+        stamina = maxStamina;
+    }
 
     public void SetInput(InputData _input)
     {
@@ -50,6 +58,10 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        if (stamina <= 0)
+        {
+            input.dx = -2;
+        }
         jumping = !IsGrounded();
         if (!jumping && input.doJump)
         {
@@ -72,9 +84,11 @@ public class PlayerController : MonoBehaviour
             direction = input.dx * Vector3.right;
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
         }
-        if (currentBiome != null && input.doInteract)
+        if (stamina>0 && currentBiome != null && input.doInteract)
         {
             resources.TryCollect(currentBiome);
+            --stamina;
+            level.StateChanged();
         }
     }
 
@@ -88,6 +102,17 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position - Vector3.up * distToGround);
     }
 
+
+    public void TransferResources()
+    {
+        Debug.LogWarning("Implement the transfer of resources to the main stack.");
+        foreach (var resource in resources)
+        {
+            resource.Remove(resource.Value);
+        }
+        resources.resourcePile.Clear();
+    }
+    /* Deprecated for now:
     private void OnTriggerEnter2D(Collider2D other)
     {
         TryUpgradeBuildable(other);
@@ -102,7 +127,7 @@ public class PlayerController : MonoBehaviour
             buildable.Upgrade(value);
             resources.Wood.Remove(value);
         }
-    }
+    }*/
 
     public void EnterBiome(Biome biome)
     {
@@ -111,15 +136,7 @@ public class PlayerController : MonoBehaviour
             previousBiome = currentBiome;
             currentBiome = biome;
 
-            // if going back to base
-            if (previousBiome != null && currentBiome == map.startBiome)
-            {
-                level.EndDay();
-            }
-            else if (previousBiome == map.startBiome)
-            {
-                level.StartDay();
-            }
+            level.ChangeBiome(previousBiome, currentBiome);
         }
     }
 

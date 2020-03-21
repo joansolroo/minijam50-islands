@@ -1764,7 +1764,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 161090250}
+  player: {fileID: 0}
+  morningCover: {fileID: 0}
+  nightCover: {fileID: 0}
+  tiredCover: {fileID: 0}
+  hurtCover: {fileID: 0}
   seed: 0
+  maxDays: 30
   map: {fileID: 5624234170885760482}
   daySeeds: 
   currentDay: 0
@@ -1815,7 +1821,7 @@ MonoBehaviour:
   dayDuration: 60
   catchUpSpeed: 0.5
   day: 0
-  currentTime: 0
+  currentTotalTime: 0
   time: 0
 --- !u!1 &5624234171012601085
 GameObject:
@@ -2413,7 +2419,7 @@ Tilemap:
       - {fileID: -6764258631168988302, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: 3924969199412559223, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: -8337174853779249273, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -25, y: 0, z: 0}
