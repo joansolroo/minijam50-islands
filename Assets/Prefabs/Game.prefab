@@ -1566,6 +1566,7 @@ MonoBehaviour:
   - {fileID: 5624234171632243129}
   - {fileID: 5624234172567194426}
   - {fileID: 0}
+  enemyTemplate: {fileID: 0}
   biomeLevels: []
   startPosition: -57
   numberOfBiome: 10

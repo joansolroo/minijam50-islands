@@ -227,14 +227,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6824009deaca848a740dfac09f5d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 5
-  stamina: 0
+  maxStamina: 2
   hurt: 0
   fighting: 0
+  hasFollowers: 0
   level: {fileID: 0}
   map: {fileID: 0}
   animationController: {fileID: 0}
   resources: {fileID: 0}
+  followers: {fileID: 0}
   speed: 5
   jumpForce: 272.2
   fallingFriction: 0.05
@@ -295,9 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcePile: {fileID: 0}
-  food: {fileID: 5708139399953837463}
-  water: {fileID: 5708139400852080008}
-  wood: {fileID: 5708139400786585515}
+  food: 0
+  people: 0
+  wood: 0
 --- !u!114 &5708139400179317837
 MonoBehaviour:
   m_ObjectHideFlags: 0

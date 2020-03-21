@@ -30,6 +30,8 @@ public class PlayerResources : MonoBehaviour
             int value = (int)biome.Collect();
             switch (biome.ResourceType)
             {
+                case ResourceType.None:
+                    return false;
                 case ResourceType.Food:
                     food += value;
                     break;
@@ -39,6 +41,7 @@ public class PlayerResources : MonoBehaviour
                 case ResourceType.People:
                     people += value;
                     break;
+                
                 default:
                     break;
             }

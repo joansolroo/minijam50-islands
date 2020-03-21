@@ -5,15 +5,16 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Properties")]
     public int maxStamina = 5;
-    public int stamina;
+    private int stamina;
     public bool hurt = false;
     public bool fighting = false;
+    public bool hasFollowers = true;
     [Header("Links")]
     [SerializeField] Level level;
     [SerializeField] Map map;
     [SerializeField] AnimationController animationController;
     [SerializeField] PlayerResources resources;
-
+    [SerializeField] PeopleManager followers;
     [Header("Controller")]
     private Rigidbody2D body;
     public float speed = 0.1f;
@@ -39,6 +40,34 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 velocity;
     [SerializeField] Vector3 direction;
 
+    public int Stamina { 
+        get => stamina;
+        set
+        {
+            if (hasFollowers)
+            {
+                if (stamina < value)
+                {
+                    for (; stamina < value; ++stamina)
+                    {
+                        followers.AddFollower();
+                    }
+                }
+                else if (stamina > value)
+                {
+                    for (; stamina > value; --stamina)
+                    {
+                        followers.RemoveFollower(0);
+                    }
+                }
+            }
+            else
+            {
+                stamina = value;
+            }
+        }
+    }
+
     private void Start()
     {
         velocity = Vector2.zero;
@@ -46,17 +75,18 @@ public class PlayerController : MonoBehaviour
         resources = GetComponent<PlayerResources>();
         animationController = GetComponent<AnimationController>();
         direction = Vector3.right;
+        stamina = 0;
         Rest();
     }
 
     public void EnterBase()
     {
         hurt = false;
-        stamina = Mathf.Max(1, stamina);
+        Stamina = Mathf.Max(1, Stamina);
     }
     public void Rest()
     {
-        stamina = maxStamina;
+        Stamina = maxStamina;
     }
 
     public void SetInput(InputData _input)
@@ -65,7 +95,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (stamina <= 0)
+        if (Stamina <= 0)
         {
             input.dx = -2;
         }
@@ -97,11 +127,11 @@ public class PlayerController : MonoBehaviour
             {
                 TryUpgradeBuildable(buildable);
             }
-            if (stamina > 0 && currentBiome != null)
+            if (Stamina > 0 && currentBiome != null)
             {
                 if (resources.TryCollect(currentBiome))
                 {
-                    --stamina;
+                    --Stamina;
                     StateChanged();
                 }
             }
@@ -122,11 +152,7 @@ public class PlayerController : MonoBehaviour
     public void TransferResources()
     {
         Debug.LogWarning("Implement the transfer of resources to the main stack.");
-        /*foreach (var resource in resources)
-        {
-            resource.Remove(resource.Value);
-        }
-        resources.resourcePile.Clear();*/
+        resources.resourcePile.Clear();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -145,9 +171,7 @@ public class PlayerController : MonoBehaviour
 
     private void TryUpgradeBuildable(Buildable buildable)
     {
-        var value = resources.Wood;
-        buildable.Upgrade(value);
-        resources.RemoveWood();
+        TransferResources();
         Debug.LogWarning("Remove visual item from above character!");
     }
 

@@ -11,6 +11,7 @@ public class Map : MonoBehaviour
     [SerializeField] public Biome startBiome;
     [SerializeField] public Biome endBiome;
     [SerializeField] List<Biome> biomeTemplates;
+    [SerializeField] EnemyController enemyTemplate;
     [Header("Biome Level")]
     [SerializeField] List<BiomeLevelData> biomeLevels;
 
@@ -78,7 +79,7 @@ public class Map : MonoBehaviour
             var template = biomeTemplates[Random.Range(0, biomeTemplates.Count)];
             Biome b = Instantiate(template);
             //setting up the value
-            b.SetValue(biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfResources.Evaluate(UnityEngine.Random.Range(0.0f, 1.0f)));
+            b.SetValue(biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfResources.Evaluate(Random.value));
             b.name = "["+i+"]"+template.name;
             b.map = this;
             biomes.Add(b);
@@ -88,6 +89,13 @@ public class Map : MonoBehaviour
             b.transform.localRotation = Quaternion.identity;
             b.transform.parent = biomeContainer;
             b.gameObject.SetActive(true);
+
+            bool hasEnemy = Random.value < 0.5f;
+            if (hasEnemy)
+            {
+                b.enemy = Instantiate<EnemyController>(enemyTemplate, b.biomeTarget.position, Quaternion.identity, b.transform);
+                b.enemy.biome = b;
+            }
         }
         biomes.Add(endBiome);
         endBiome.map = this;

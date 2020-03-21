@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] Biome biome;
+    [SerializeField] public Biome biome;
     [SerializeField] int strength = 1;
     public void Fight(PlayerController player)
     {
@@ -18,9 +18,9 @@ public class EnemyController : MonoBehaviour
         player.StateChanged();
 
         yield return new WaitForSeconds(1);
-        player.stamina -= 1;
+        player.Stamina -= 1;
         bool die = false;
-        if (player.stamina <= 0)
+        if (player.Stamina <= 0)
         {
             player.hurt = true;
         }
@@ -40,7 +40,8 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
-        GameObject.Destroy(this.gameObject);
         biome.enemy = null;
+        GameObject.Destroy(this.gameObject);
+        
     }
 }

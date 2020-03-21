@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PeopleManager : MonoBehaviour
 {
+    [SerializeField] Transform idleContainer;
+    [SerializeField] Transform activeContainer;
+
     public PlayerController player;
+    public List<Follower> idle;
     public List<Follower> agents;
-    private List<int> agentDelay;
+    //private List<int> agentDelay;
     public int actionDelay = 0;
 
     public int actionQueueSize = 100;
@@ -17,17 +21,35 @@ public class PeopleManager : MonoBehaviour
 
     private void Start()
     {
-        agentDelay = new List<int>();
-        for (int i = 0; i < agents.Count; i++) 
+       // agentDelay = new List<int>();
+    }
+    public void AddFollower()
+    {
+        if (idle.Count > 0)
         {
-            agentDelay.Add((int)((i + 1.5f) * actionDelay));
-            agents[i].gameObject.name = "folower [" + agentDelay[i].ToString() + "]";
-            agents[i].speed = player.speed;
-            agents[i].jumpForce = player.jumpForce;
-            agents[i].distToGround = player.distToGround;
+            int idx = agents.Count;
+            var agent = idle[0];
+            
+            //agentDelay.Add((int)((idx + 1.5f) * actionDelay));
+            agent.gameObject.name = "folower [" + idx/*agentDelay[idx].ToString()*/ + "]";
+            agent.speed = player.speed;
+            agent.jumpForce = player.jumpForce;
+            agent.distToGround = player.distToGround;
+
+            agent.transform.parent = activeContainer;
+
+            agents.Add(agent);
+            idle.RemoveAt(0);
         }
     }
-    
+    public void RemoveFollower(int idx)
+    {
+        var agent = agents[idx];
+        agent.transform.parent = idleContainer;
+        idle.Add(agent);
+
+        agents.RemoveAt(idx);
+    }
     private void Update()
     {
         removeCounter += 0.8f * Time.deltaTime;
@@ -47,7 +69,7 @@ public class PeopleManager : MonoBehaviour
         
         for (int i = 0; i < agents.Count; i++)
         {
-            int index = agentDelay[i];
+            int index = (int)((i + 1.5f) * actionDelay);// agentDelay[i];
             Follower agent = agents[i];
 
             if(playerPositions.Count > index)

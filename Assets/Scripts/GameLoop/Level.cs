@@ -52,7 +52,7 @@ public class Level : MonoBehaviour
     {
         fightCover.SetActive(player.fighting);
         hurtCover.SetActive(player.hurt);
-        tiredCover.SetActive(!player.hurt && player.stamina <= 0);
+        tiredCover.SetActive(!player.hurt && player.Stamina <= 0);
     }
     public void ChangeBiome(Biome previousBiome, Biome currentBiome)
     {
@@ -80,7 +80,6 @@ public class Level : MonoBehaviour
         time.GoToNight();
         map.Generate(currentDay);
         Debug.LogWarning("Do this when interacting with the proper object instead");
-        player.TransferResources();
     }
 
     public void RestartLevel()
