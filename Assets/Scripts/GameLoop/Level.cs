@@ -26,6 +26,10 @@ public class Level : MonoBehaviour
     [Header("Status")]
     [SerializeField] int currentDay = 0;
 
+    private AudioSource audiosource;
+    public AudioClip endDaySound;
+    public AudioClip startDaySound;
+
     public void Initialize()
     {
         Random.InitState(seed);
@@ -35,17 +39,20 @@ public class Level : MonoBehaviour
             daySeeds[i] = Random.Range(0, 65000);
 
         }
+        audiosource = GetComponent<AudioSource>();
     }
     public void StartLevel()
     {
         map.level = this;
-        map.Generate(currentDay) ;
+        map.Generate(currentDay);
     }
     public void StartDay()
     {
         time.GoToNextMorning();
-        //player.Rest();
         morningCover.SetActive(true);
+
+        audiosource.clip = startDaySound;
+        audiosource.Play();
     }
 
     public void StateChanged()
@@ -78,6 +85,9 @@ public class Level : MonoBehaviour
         map.Generate(currentDay);
         camp.NextDay();
         player.Rest();
+
+        audiosource.clip = endDaySound;
+        audiosource.Play();
 
         if (camp.win)
             OnWin();

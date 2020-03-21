@@ -1633,7 +1633,7 @@ MonoBehaviour:
   staminaText: {fileID: 9107345993345382731}
   boat: {fileID: 0}
   boatText: {fileID: 379303569}
-  playerResources: {fileID: 0}
+  camp: {fileID: 0}
   foodText: {fileID: 6052311854174106765}
   waterText: {fileID: 0}
   woodText: {fileID: 6052311855865539857}

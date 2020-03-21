@@ -257,7 +257,7 @@ MonoBehaviour:
   hands: {fileID: 5017720538559108921}
   spacing: 0.6
   template: {fileID: 3257543389126297724}
-  clearSound: {fileID: 8300000, guid: 47a0416a46f917641a84f236f76f3dc6, type: 3}
+  clearSound: {fileID: 8300000, guid: 39087211e4f260d419e9182f5f6da6be, type: 3}
   collectSound: {fileID: 8300000, guid: 2b6578fd898a3e347bd16526e545eaec, type: 3}
   wood:
   - {fileID: -4241120753303310094, guid: 0c4ed30644c95b540a95c142fedede37, type: 3}
