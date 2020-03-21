@@ -37,6 +37,7 @@ public class Level : MonoBehaviour
     {
         ++currentDay;
         time.GoToNight();
+        map.Generate(currentDay);
     }
 
     public void RestartLevel()
