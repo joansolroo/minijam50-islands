@@ -8,6 +8,7 @@ public class Biome : MonoBehaviour
     public BiomeData data;
 
     public string activationTag = "Player";
+    public EnemyController enemy;
 
     public Transform biomeTarget;
     public Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
