@@ -56,8 +56,6 @@ public class Level : MonoBehaviour
     }
     public void ChangeBiome(Biome previousBiome, Biome currentBiome)
     {
-        Debug.Log("Biome:" + previousBiome + "->" + currentBiome);
-
         morningCover.SetActive(false);
         nightCover.SetActive(false);
 

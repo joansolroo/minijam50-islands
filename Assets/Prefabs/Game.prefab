@@ -2955,6 +2955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   level: {fileID: 5624234170885760481}
+  coverScreen: {fileID: 0}
+  mainMenu: {fileID: 0}
 --- !u!1 &5624234171583228020
 GameObject:
   m_ObjectHideFlags: 0

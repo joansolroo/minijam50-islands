@@ -157,7 +157,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("entering " + other);
         var buildable = other.transform.GetComponent<Buildable>();
         if (buildable)
         {
