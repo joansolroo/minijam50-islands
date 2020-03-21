@@ -52,7 +52,9 @@ public class DayTime : MonoBehaviour
         currentTime = newTime;
         day = (int)currentTime;
 
-        sky.UpdateColor(currentTime % 1);
-        nightVision.color = new Color(1, 1, 1, Mathf.Max(0,4*(0.5f-sky.sprite.color.grayscale)));
+        if(sky)
+            sky.UpdateColor(currentTime % 1);
+        if(nightVision && sky)
+            nightVision.color = new Color(1, 1, 1, Mathf.Max(0,4*(0.5f-sky.sprite.color.grayscale)));
     }
 }
