@@ -6,6 +6,7 @@ public class ResourcePile : MonoBehaviour
 {
     private Transform container;
 
+    public SpriteRenderer hands;
     public float spacing;
     public GameObject template;
     public AudioClip clearSound;
@@ -64,6 +65,7 @@ public class ResourcePile : MonoBehaviour
         stack++;
         audiosource.clip = collectSound;
         audiosource.Play();
+        hands.enabled = true;
     }
 
     public void Clear()
@@ -74,5 +76,6 @@ public class ResourcePile : MonoBehaviour
         resources.Clear();
         audiosource.clip = clearSound;
         audiosource.Play();
+        hands.enabled = false;
     }
 }
