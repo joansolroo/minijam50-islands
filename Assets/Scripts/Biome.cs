@@ -4,9 +4,13 @@ using UnityEngine;
 public class Biome : MonoBehaviour
 {
     public Map map;
+    public BiomeData data;
+
+    public string activationTag = "Player";
+
     public Transform biomeTarget;
     public Cinemachine.CinemachineVirtualCamera cinemachineVirtualCamera;
-
+    
     [SerializeField]
     private Resource resource;
 
@@ -23,11 +27,14 @@ public class Biome : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var player = collision.gameObject.GetComponent<PlayerController>();
-        if (player)
+        if (collision.tag == activationTag)
         {
-            player.EnterBiome(this);
-            cinemachineVirtualCamera.Follow = biomeTarget;
+            var player = collision.gameObject.GetComponent<PlayerController>();
+            if (player)
+            {
+                player.EnterBiome(this);
+                cinemachineVirtualCamera.Follow = biomeTarget;
+            }
         }
     }
 }

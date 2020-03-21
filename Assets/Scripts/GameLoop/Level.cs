@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [Header("Links")]
+    [SerializeField] DayTime time;
     [Header("Properties")]
     [SerializeField] int seed;
     [SerializeField] Map map;
@@ -22,15 +24,19 @@ public class Level : MonoBehaviour
 
         }
     }
-    public void StartDay()
+    public void StartLevel()
     {
         map.level = this;
         map.Generate(currentDay) ;
     }
+    public void StartDay()
+    {
+        time.GoToNextMorning();
+    }
     public void EndDay()
     {
         ++currentDay;
-        StartDay();
+        time.GoToNight();
     }
 
     public void RestartLevel()

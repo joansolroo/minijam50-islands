@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 9018713775378621313}
   - component: {fileID: 9018713775378621371}
   - component: {fileID: 9018713775378621319}
+  - component: {fileID: 7427772255712804740}
   - component: {fileID: 9018713775378621316}
   - component: {fileID: 9018713775378621318}
   - component: {fileID: 9018713775378621312}
@@ -244,6 +245,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7427772255712804740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9018713775378621368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352f1a32ee5ac5549ba17c2bb7bf627c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9018713775378621316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,12 +269,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6824009deaca848a740dfac09f5d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 0}
+  map: {fileID: 0}
+  animationController: {fileID: 0}
+  resources: {fileID: 0}
   speed: 5
   collectResource: 32
   jumpForce: 272.2
   fallingFriction: 0.05
-  jumping: 0
   distToGround: 0.52
+  previousBiome: {fileID: 0}
+  currentBiome: {fileID: 0}
+  dx: 0
+  doJump: 0
+  doInteract: 0
+  jumping: 0
+  velocity: {x: 0, y: 0}
+  direction: {x: 0, y: 0, z: 0}
 --- !u!114 &9018713775378621318
 MonoBehaviour:
   m_ObjectHideFlags: 0

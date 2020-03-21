@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
     public void StartLevel()
     {
         level.Initialize();
-        level.StartDay();
+        level.StartLevel();
     }
 
     public void RestartLevel()

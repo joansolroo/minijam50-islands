@@ -611,6 +611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 0}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 0}
@@ -661,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ab18d8a16dbd041a07aede10628bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: {fileID: 0}
   seed: 0
   map: {fileID: 5624234170885760482}
   daySeeds: 
@@ -1747,6 +1750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 5624234170721554496}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 0}
@@ -1838,6 +1843,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 5624234171335432580}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 5624234171215490183}
@@ -2294,6 +2301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 5624234171983069790}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 5624234171314462419}
@@ -2454,6 +2463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 0}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 0}
@@ -3448,6 +3459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 5624234172046839147}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 5624234171632243135}
@@ -3552,6 +3565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 5624234172697073770}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 5624234171955426826}
@@ -4956,6 +4971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  data: {fileID: 0}
+  activationTag: Player
   biomeTarget: {fileID: 5624234171299634488}
   cinemachineVirtualCamera: {fileID: 0}
   resource: {fileID: 0}

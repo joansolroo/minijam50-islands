@@ -7,20 +7,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Level level;
     [SerializeField] Map map;
     [SerializeField] AnimationController animationController;
-    [SerializeField] PlayerResources resources;
+    [SerializeField]
+    PlayerResources resources;
 
-    [Header("Controller")] 
+    [Header("Controller")]
     private Rigidbody2D body;
     public float speed = 0.1f;
-    public KeyCode collectResource = KeyCode.Space;
     public float jumpForce = 10f;
     public float fallingFriction = 0.05f;
     public float distToGround;
 
+
+    [System.Serializable]
+    public struct InputData
+    {
+        public float dx;
+        public bool doJump ;
+        public bool doInteract;
+    }
     [Header("Status")]
     [SerializeField] Biome previousBiome;
     [SerializeField] Biome currentBiome;
 
+    [SerializeField] InputData input;
     [SerializeField] bool jumping = false;
     [SerializeField] Vector2 velocity;
     [SerializeField] Vector3 direction;
@@ -33,32 +42,37 @@ public class PlayerController : MonoBehaviour
         animationController = GetComponent<AnimationController>();
         direction = Vector3.right;
     }
+    
 
+    public void SetInput(InputData _input)
+    {
+        this.input = _input;
+    }
     private void Update()
     {
         jumping = !IsGrounded();
-        if (!jumping && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z)))
+        if (!jumping && input.doJump)
         {
             body.AddForce(new Vector2(0f, jumpForce));
             jumping = true;
         }
-        if(body.velocity == Vector2.zero && jumping)
+        if (body.velocity == Vector2.zero && jumping)
         {
             transform.position -= fallingFriction * Vector3.up;
         }
 
-        velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+        velocity = new Vector2(input.dx * speed, body.velocity.y);
         Vector3 dummy = Vector3.zero;
         body.velocity = velocity;
 
-        if (Input.GetAxis("Horizontal") == 0f)
+        if (input.dx == 0f)
             animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0f);
         else
         {
-            direction = Input.GetAxis("Horizontal") * Vector3.right;
+            direction = input.dx * Vector3.right;
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
         }
-        if (currentBiome != null && Input.GetKeyDown(collectResource))
+        if (currentBiome != null && input.doInteract)
         {
             resources.TryCollect(currentBiome);
         }
@@ -101,6 +115,10 @@ public class PlayerController : MonoBehaviour
             if (previousBiome != null && currentBiome == map.startBiome)
             {
                 level.EndDay();
+            }
+            else if (previousBiome == map.startBiome)
+            {
+                level.StartDay();
             }
         }
     }
