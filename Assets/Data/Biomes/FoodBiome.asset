@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6d3453a4093264297197142cf3a0cc, type: 3}
-  m_Name: Bush3
+  m_Name: FoodBiome
   m_EditorClassIdentifier: 
-  biomeLevel: {fileID: 11400000, guid: ec05faa382e01344f89b51572ab6ff8a, type: 2}
   type: 1

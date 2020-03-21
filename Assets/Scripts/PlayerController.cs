@@ -139,9 +139,9 @@ public class PlayerController : MonoBehaviour
 
     private void TryUpgradeBuildable(Buildable buildable)
     {
-        var value = resources.Wood.Value;
+        var value = resources.Wood;
         buildable.Upgrade(value);
-        resources.Wood.Remove(value);
+        resources.RemoveWood();
         Debug.LogWarning("Remove visual item from above character!");
     }
 

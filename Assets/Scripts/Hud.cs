@@ -40,9 +40,8 @@ public class Hud : MonoBehaviour
     }
     private void UpdatePlayerResources()
     {
-        staminaText.text = $"Stamina: {player.stamina}";
-        foodText.text = $"Food: {playerResources.Food.Value}";
-        waterText.text = $"Water: {playerResources.Water.Value}";
-        woodText.text = $"Wood: {playerResources.Wood.Value}";
+        staminaText.text = $"Stamina: {playerResources.People}";
+        foodText.text = $"Food: {playerResources.Food}";
+        woodText.text = $"Wood: {playerResources.Wood}";
     }
 }

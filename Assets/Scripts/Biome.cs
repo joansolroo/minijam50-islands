@@ -14,12 +14,17 @@ public class Biome : MonoBehaviour
     public List<GameObject> toEnable = new List<GameObject>();
     public List<GameObject> toDisable = new List<GameObject>();
 
-    [SerializeField]
-    private Resource resource;
+    public bool HasResource = true;
 
-    public bool HasResource => resource != null;
+    public ResourceType ResourceType => data.type;
 
-    public Type ResourceType => resource.GetType();
+    public float value;
+
+    public void SetValue(float v)
+    {
+        value = v;
+        HasResource = true;
+    }
 
     public float Collect()
     {
@@ -28,8 +33,7 @@ public class Biome : MonoBehaviour
         foreach (GameObject go in toDisable)
             go.SetActive(false);
 
-        float value = resource.Value;
-        resource.Remove(value);
+        HasResource = false;
         return value;
     }
 
