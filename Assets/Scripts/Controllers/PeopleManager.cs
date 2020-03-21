@@ -109,4 +109,9 @@ public class PeopleManager : MonoBehaviour
             }
         }
     }
+
+    public int GetFollowerCount()
+    {
+        return idle.Count + agents.Count;
+    }
 }
