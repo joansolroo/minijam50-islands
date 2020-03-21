@@ -86,6 +86,9 @@ TextureImporter:
   - first:
       213: 5440619614676959070
     second: TopWater3
+  - first:
+      213: 8350910257624433164
+    second: Spritesheets 1_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -703,6 +706,27 @@ TextureImporter:
       bones: []
       spriteID: e5fb7d2c6b6f08b40800000000000000
       internalID: 5440619614676959070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheets 1_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02ced062a464e370800000000000000
+      internalID: 8350910257624433164
       vertices: []
       indices: 
       edges: []
