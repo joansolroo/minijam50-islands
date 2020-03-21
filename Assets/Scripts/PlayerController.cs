@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             {
                 TryUpgradeBuildable(buildable);
             }
-            if (Stamina > 0 && currentBiome != null)
+            if (Stamina > 0 && currentBiome != null && !currentBiome.enemy)
             {
                 if (resources.TryCollect(currentBiome))
                 {
