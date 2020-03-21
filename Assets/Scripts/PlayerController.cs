@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(PlayerResources))]
 public class PlayerController : MonoBehaviour
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 velocity;
     [SerializeField] Vector3 direction;
 
+    public List<string> pickedResources = new List<string>();
+
     public int Stamina { 
         get => stamina;
         set
@@ -57,7 +60,8 @@ public class PlayerController : MonoBehaviour
                 {
                     for (; stamina > value; --stamina)
                     {
-                        followers.RemoveFollower(0);
+                        followers.RemoveFollower(0, pickedResources);
+                        pickedResources.Clear();
                     }
                 }
             }

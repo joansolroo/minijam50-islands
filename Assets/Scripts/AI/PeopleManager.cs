@@ -8,9 +8,9 @@ public class PeopleManager : MonoBehaviour
     [SerializeField] Transform activeContainer;
 
     public PlayerController player;
+    public Transform boat;
     public List<Follower> idle;
     public List<Follower> agents;
-    //private List<int> agentDelay;
     public int actionDelay = 0;
 
     public int actionQueueSize = 100;
@@ -21,7 +21,7 @@ public class PeopleManager : MonoBehaviour
 
     private void Start()
     {
-       // agentDelay = new List<int>();
+       
     }
     public void AddFollower()
     {
@@ -30,8 +30,7 @@ public class PeopleManager : MonoBehaviour
             int idx = agents.Count;
             var agent = idle[0];
             
-            //agentDelay.Add((int)((idx + 1.5f) * actionDelay));
-            agent.gameObject.name = "folower [" + idx/*agentDelay[idx].ToString()*/ + "]";
+            agent.gameObject.name = "folower [" + idx + "]";
             agent.speed = player.speed;
             agent.jumpForce = player.jumpForce;
             agent.distToGround = player.distToGround;
@@ -42,13 +41,22 @@ public class PeopleManager : MonoBehaviour
             idle.RemoveAt(0);
         }
     }
-    public void RemoveFollower(int idx)
+
+    public void RemoveFollower(int idx, List<string> resourceToCarry)
     {
         var agent = agents[idx];
         agent.transform.parent = idleContainer;
         idle.Add(agent);
 
         agents.RemoveAt(idx);
+        agent.target = boat.position;
+        agent.goToBase = true;
+
+        foreach (string res in resourceToCarry)
+            agent.AddResource(res);
+
+        if(agents.Count == 0)
+            agent.speed = 2f * player.speed;
     }
     private void Update()
     {
@@ -69,7 +77,7 @@ public class PeopleManager : MonoBehaviour
         
         for (int i = 0; i < agents.Count; i++)
         {
-            int index = (int)((i + 1.5f) * actionDelay);// agentDelay[i];
+            int index = (int)((i + 1.5f) * actionDelay);
             Follower agent = agents[i];
 
             if(playerPositions.Count > index)

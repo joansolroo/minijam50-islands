@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     public ResourcePile resourcePile;
-
+    public PlayerController player;
 
     [SerializeField]
     private int food;
@@ -48,7 +48,7 @@ public class PlayerResources : MonoBehaviour
 
             for (int i = 0; i < (int)value; i++)
             {
-                resourcePile.Add(biome.ResourceType.ToString());
+                player.pickedResources.Add(biome.ResourceType.ToString());
             }
             success = true;
         }
