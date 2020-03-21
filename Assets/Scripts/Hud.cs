@@ -28,7 +28,7 @@ public class Hud : MonoBehaviour
         int day = time.day;
         float hours = (time.currentTotalTime - day) * 24;
         int h = (int)hours;
-        int m = (int)((hours - h) * 60);
+        int m = (int)((hours - h) * 4)*15;
         timeText.text = $"Day: {day}/30\n"+h.ToString("00")+':'+m.ToString("00");
     }
     private void UpdatePlayerResources()
