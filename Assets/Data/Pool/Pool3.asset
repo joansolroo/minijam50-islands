@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfacfeb18043714b9670e25d3523279, type: 3}
+  m_Name: Pool3
+  m_EditorClassIdentifier: 
+  biomes:
+  - {fileID: 11400000, guid: 4212a31438e85ab49b8ac207538e85ec, type: 2}
+  - {fileID: 11400000, guid: 03e6a4b63bf1146418df70d04c857516, type: 2}
+  - {fileID: 11400000, guid: 13b03e6435fe4f44e958da347c43e60f, type: 2}

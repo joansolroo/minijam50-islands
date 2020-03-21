@@ -17,22 +17,85 @@ public class ResourcePileTemplate : MonoBehaviour
     public AnimationCurve speedAmplitude;
     public AnimationCurve curve;
 
+    public bool destroy = false;
+    public bool appear = true;
+    public Sprite[] animations;
+    public SpriteRenderer sr;
+    private int animationIndex;
+    private float animationTime;
+    public float perFrameTime;
+    private Vector3 velocity;
+
     void Start()
     {
         cooldown = Random.Range(0.5f, 1f);
         initPosition = transform.localPosition;
         t = Random.Range(0f, 1f);
+        velocity = Vector3.zero;
+
+        if(!sr)
+            sr = GetComponent<SpriteRenderer>();
+        animationTime = Random.Range(-perFrameTime, 0);
+        animationIndex = animations.Length - 1;
+
+        if(appear)
+        {
+            sr.sprite = animations[animationIndex];
+        }
     }
     
     void Update()
     {
-        float speed = 0.2f * playerBody.velocity.x;
-        float amplitude = speedAmplitude.Evaluate(Mathf.Abs(speed));
+        if(appear)
+        {
+            if (animationTime >= perFrameTime)
+            {
+                animationTime -= perFrameTime;
+                animationIndex--;
+                if (animationIndex == 0)
+                {
+                    animationTime = Random.Range(-perFrameTime, 0);
+                    appear = false;
+                }
+                sr.sprite = animations[animationIndex];
+            }
+            animationTime += Time.deltaTime;
+        }
+        else if (destroy)
+        {
+            velocity += -9.81f * Time.deltaTime * Vector3.up;
+            transform.localPosition += velocity * Time.deltaTime;
+            
+            if (animationTime >= perFrameTime)
+            {
+                animationTime -= perFrameTime;
+                animationIndex++;
+                if (animationIndex >= animations.Length)
+                    Destroy(gameObject);
+                else
+                    sr.sprite = animations[animationIndex];
+            }
+            animationTime += Time.deltaTime;
+        }
+        else
+        {
+            float speed = 0.2f * playerBody.velocity.x;
+            float amplitude = speedAmplitude.Evaluate(Mathf.Abs(speed));
 
-        t += amplitude * Time.deltaTime;
-        if (t >= 1f)
-            t = 0f;
+            t += amplitude * Time.deltaTime;
+            if (t >= 1f)
+                t = 0f;
 
-        transform.localPosition = new Vector3(initPosition.x - 0.1f * Mathf.Pow(2, initPosition.y) * speed, initPosition.y * (1f + 0.1f * amplitude * (1f - 2f * curve.Evaluate(t))), initPosition.z);
+            Vector3 newPosition = new Vector3(initPosition.x - 0.1f * Mathf.Pow(2, initPosition.y) * speed, initPosition.y * (1f + 0.1f * amplitude * (1f - 2f * curve.Evaluate(t))), initPosition.z);
+            velocity = newPosition - transform.localPosition;
+            transform.localPosition = newPosition;
+        }
+    }
+
+    public void Destroy()
+    {
+        destroy = true;
+        transform.parent = null;
+        animationIndex = 0;
     }
 }
