@@ -11,9 +11,11 @@ public class Follower : MonoBehaviour
     private Vector3 direction;
     public Vector3 target;
     private AnimationController animationController;
+    public ResourcePile pile;
 
     public bool jumping = false;
     public float distToGround;
+    public bool goToBase = false;
 
     void Start()
     {
@@ -25,7 +27,7 @@ public class Follower : MonoBehaviour
     
     void Update()
     {
-        Vector3 delta = (target - transform.position) * speed * Time.deltaTime;
+        Vector3 delta = (target - transform.position).normalized * speed * Time.deltaTime;
         if ((target - transform.position).sqrMagnitude < 0.001f)
             delta = Vector3.zero;
 
@@ -40,11 +42,9 @@ public class Follower : MonoBehaviour
             verticalVelocity = jumpForce * Time.deltaTime;
         }
         
-
-        //float dy = verticalVelocity * Time.deltaTime;
+        
         delta = new Vector3(delta.x, verticalVelocity * Time.deltaTime, 0);
         transform.position += delta;
-        //transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         if (lastPosition != transform.position)
         {
@@ -53,7 +53,14 @@ public class Follower : MonoBehaviour
         }
 
         if (delta.sqrMagnitude < 0.000001f)
+        {
             animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0);
+            if(goToBase)
+            {
+                goToBase = false;
+                pile.Clear();
+            }
+        }
         else
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0);
 
@@ -63,5 +70,9 @@ public class Follower : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, -Vector3.up, distToGround, 1 << LayerMask.NameToLayer("Ground"));
+    }
+    public void AddResource(string type)
+    {
+        pile.Add(type);
     }
 }

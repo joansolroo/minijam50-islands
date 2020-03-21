@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ResourcePileTemplate : MonoBehaviour
 {
-    public Rigidbody2D playerBody;
-
     public int stackIndex;
     public Vector3 initPosition;
 
@@ -25,6 +23,7 @@ public class ResourcePileTemplate : MonoBehaviour
     private float animationTime;
     public float perFrameTime;
     private Vector3 velocity;
+    private Vector3 lastParentPosition;
 
     void Start()
     {
@@ -42,6 +41,7 @@ public class ResourcePileTemplate : MonoBehaviour
         {
             sr.sprite = animations[animationIndex];
         }
+        lastParentPosition = transform.parent.position;
     }
     
     void Update()
@@ -80,7 +80,10 @@ public class ResourcePileTemplate : MonoBehaviour
         }
         else
         {
-            float speed = 0.2f * playerBody.velocity.x;
+            Vector3 parentSpeed = Vector3.zero;
+            if(transform.parent)
+                parentSpeed= transform.parent.position - lastParentPosition;
+            float speed = 0.2f * parentSpeed.x;
             float amplitude = speedAmplitude.Evaluate(Mathf.Abs(speed));
 
             t += amplitude * Time.deltaTime;
@@ -91,6 +94,9 @@ public class ResourcePileTemplate : MonoBehaviour
             velocity = newPosition - transform.localPosition;
             transform.localPosition = newPosition;
         }
+
+        if (transform.parent)
+            lastParentPosition = transform.parent.position;
     }
 
     public void Destroy()
