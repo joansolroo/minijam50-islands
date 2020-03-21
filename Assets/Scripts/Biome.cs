@@ -17,7 +17,7 @@ public class Biome : MonoBehaviour
 
     public bool HasResource = true;
 
-    public ResourceType ResourceType => data.type;
+    public ResourceType ResourceType => data?data.type: ResourceType.None;
 
     public float value;
 

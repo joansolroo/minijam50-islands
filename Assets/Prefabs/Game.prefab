@@ -1474,6 +1474,7 @@ MonoBehaviour:
   map: {fileID: 0}
   data: {fileID: 0}
   activationTag: Player
+  enemy: {fileID: 0}
   biomeTarget: {fileID: 0}
   cinemachineVirtualCamera: {fileID: 0}
   toEnable: []
@@ -1535,6 +1536,7 @@ MonoBehaviour:
   morningCover: {fileID: 0}
   nightCover: {fileID: 0}
   tiredCover: {fileID: 0}
+  fightCover: {fileID: 0}
   hurtCover: {fileID: 0}
   seed: 0
   maxDays: 30
@@ -1591,6 +1593,9 @@ MonoBehaviour:
   day: 0
   currentTotalTime: 0
   time: 0
+  autoIncrement: 0
+  morningTime: 0.3
+  nightTime: 0.9
 --- !u!1 &5624234171012601085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,6 +2686,7 @@ MonoBehaviour:
   map: {fileID: 0}
   data: {fileID: 0}
   activationTag: Player
+  enemy: {fileID: 0}
   biomeTarget: {fileID: 5624234171983069790}
   cinemachineVirtualCamera: {fileID: 0}
   toEnable: []
@@ -2861,6 +2867,7 @@ MonoBehaviour:
   map: {fileID: 0}
   data: {fileID: 0}
   activationTag: Player
+  enemy: {fileID: 0}
   biomeTarget: {fileID: 0}
   cinemachineVirtualCamera: {fileID: 0}
   toEnable: []
@@ -4313,6 +4320,7 @@ MonoBehaviour:
   map: {fileID: 0}
   data: {fileID: 0}
   activationTag: Player
+  enemy: {fileID: 0}
   biomeTarget: {fileID: 5624234172046839147}
   cinemachineVirtualCamera: {fileID: 0}
   toEnable:
@@ -5110,6 +5118,7 @@ MonoBehaviour:
   map: {fileID: 0}
   data: {fileID: 0}
   activationTag: Player
+  enemy: {fileID: 0}
   biomeTarget: {fileID: 5624234171299634488}
   cinemachineVirtualCamera: {fileID: 0}
   toEnable: []

@@ -39,7 +39,7 @@ public class PeopleManager : MonoBehaviour
                 playerPositions.RemoveAt(playerPositions.Count - 1);
             lastPlayerPosition = player.transform.position;
         }
-        if(removeCounter >= removeCooldown)
+        if(playerPositions.Count>0 && removeCounter >= removeCooldown)
         {
             playerPositions.RemoveAt(playerPositions.Count - 1);
             removeCounter = 0f;
@@ -50,7 +50,7 @@ public class PeopleManager : MonoBehaviour
             int index = agentDelay[i];
             Follower agent = agents[i];
 
-            if(playerPositions.Count >= index)
+            if(playerPositions.Count > index)
             {
                 agent.target = playerPositions[index];
             }
