@@ -29,27 +29,32 @@ public class PlayerResources : MonoBehaviour, IEnumerable<Resource>
         yield return wood;
     }
 
-    public void TryCollect(Biome biome)
+    public bool TryCollect(Biome biome)
     {
-        if (!biome.HasResource)
+        bool success = false;
+        if (biome.HasResource)
         {
-            return;
-        }
-
-        foreach (var resource in this)
-        {
-            if (biome.ResourceType == resource.GetType())
+            foreach (var resource in this)
             {
-                float value = biome.Collect();
-                resource.Add(value);
-
-                //resourcePile.Clear();
-                for (int i=0; i<(int)value; i++)
+                if (biome.ResourceType == resource.GetType())
                 {
-                    resourcePile.Add(resource.GetType().ToString());
+                    float value = biome.Collect();
+                    if (value > 0)
+                    {
+                        resource.Add(value);
+
+                        //resourcePile.Clear();
+                        for (int i = 0; i < (int)value; i++)
+                        {
+                            resourcePile.Add(resource.GetType().ToString());
+                        }
+                        success = true;
+                    }
+                    
                 }
             }
         }
+        return success;
     }
 
     IEnumerator IEnumerable.GetEnumerator()

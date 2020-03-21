@@ -86,9 +86,11 @@ public class PlayerController : MonoBehaviour
         }
         if (stamina>0 && currentBiome != null && input.doInteract)
         {
-            resources.TryCollect(currentBiome);
-            --stamina;
-            level.StateChanged();
+            if (resources.TryCollect(currentBiome))
+            {
+                --stamina;
+                level.StateChanged();
+            }
         }
     }
 
