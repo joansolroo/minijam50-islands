@@ -206,6 +206,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &287416433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5624234171632243129, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5624234171692937219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e05d076be506b748b112e4292a28256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &313501735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 313501735, guid: d9e9a823705793644a343d485af447b0,
@@ -865,6 +877,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2107073344}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1982366114 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5624234172567194426, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5624234171692937219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e05d076be506b748b112e4292a28256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2107073344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1612,10 +1636,60 @@ PrefabInstance:
       propertyPath: tiredCover
       value: 
       objectReference: {fileID: 2113144966}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeTemplates.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeLevels.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 287416433}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1982366114}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeLevels.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d1c7f919aecd38d4db95e01ff976bd9f,
+        type: 2}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeLevels.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f2bcc86fe5117094bbc9e77c9f5af5ae,
+        type: 2}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeLevels.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ec05faa382e01344f89b51572ab6ff8a,
+        type: 2}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeLevels.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: b41987a9106893948badf6f03aecb369,
+        type: 2}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeLevels.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0197119e48fc4424bb13ab7b2783a9e4,
+        type: 2}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[17].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1630,7 +1704,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[6].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1645,7 +1719,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1767,6 +1841,12 @@ PrefabInstance:
       propertyPath: cinemachineVirtualCamera
       value: 
       objectReference: {fileID: 738370698}
+    - target: {fileID: 5624234171314462415, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 9fd36c14065458b44b4fbed2ccaa70f6,
+        type: 2}
     - target: {fileID: 5624234171314462419, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: max
@@ -1892,6 +1972,12 @@ PrefabInstance:
       propertyPath: cinemachineVirtualCamera
       value: 
       objectReference: {fileID: 738370698}
+    - target: {fileID: 5624234171632243129, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: e2d197f226d7ea644bf1ccf5ec643fa4,
+        type: 2}
     - target: {fileID: 5624234171632243135, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: max
@@ -1927,6 +2013,12 @@ PrefabInstance:
       propertyPath: cinemachineVirtualCamera
       value: 
       objectReference: {fileID: 738370698}
+    - target: {fileID: 5624234172567194426, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 76d59d64c8a85db469d8009bdf610ef7,
+        type: 2}
     - target: {fileID: 7003290319294643461, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_IsActive
@@ -1937,7 +2029,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5624234171314462419, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
 --- !u!114 &5624234171692937220 stripped
 MonoBehaviour:

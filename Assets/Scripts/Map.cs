@@ -11,6 +11,8 @@ public class Map : MonoBehaviour
     [SerializeField] public Biome startBiome;
     [SerializeField] public Biome endBiome;
     [SerializeField] List<Biome> biomeTemplates;
+    [Header("Biome Level")]
+    [SerializeField] List<BiomeLevelData> biomeLevels;
 
     public int startPosition = -57;
     public int numberOfBiome = 3;
@@ -69,10 +71,14 @@ public class Map : MonoBehaviour
         biomes.Add(startBiome);
         startBiome.map = this;
 
+        int numberOfBiomePerDifficultyLevel = numberOfBiome / biomeLevels.Count;
+
         for (int i = 0; i < numberOfBiome; i++)
         {
             var template = biomeTemplates[Random.Range(0, biomeTemplates.Count)];
             Biome b = Instantiate(template);
+            //setting up the value
+            b.SetValue(biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfResources.Evaluate(UnityEngine.Random.Range(0.0f, 1.0f)));
             b.name = "["+i+"]"+template.name;
             b.map = this;
             biomes.Add(b);
