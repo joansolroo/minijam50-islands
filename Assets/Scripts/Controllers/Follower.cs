@@ -15,9 +15,7 @@ public class Follower : MonoBehaviour
 
     public bool jumping = false;
     public float distToGround;
-    public bool goToBase = false;
-
-    //FireCamp fireCamp;
+    public bool combat = false;
 
     void Start()
     {
@@ -25,7 +23,6 @@ public class Follower : MonoBehaviour
         animationController = GetComponent<AnimationController>();
         target = transform.position;
         animationController.timeIdle += Random.Range(-0.03f, 0.03f);
-        //fireCamp = FireCamp.main;
     }
     
     void Update()
@@ -33,6 +30,8 @@ public class Follower : MonoBehaviour
         Vector3 delta = (target - transform.position).normalized * speed * Time.deltaTime;
         if ((target - transform.position).sqrMagnitude < 0.001f)
             delta = Vector3.zero;
+        if (combat)
+            delta.y = 0;
 
         jumping = !IsGrounded();
         if (jumping)
@@ -57,12 +56,10 @@ public class Follower : MonoBehaviour
 
         if (delta.sqrMagnitude < 0.000001f)
         {
-            animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0);
-            if(goToBase)
-            {
-                goToBase = false;
-                //fireCamp.Get(pile);
-            }
+            if (combat)
+                animationController.playAnimation(AnimationController.AnimationType.ATTACK, direction.x < 0);
+            else
+                animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0);
         }
         else
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0);

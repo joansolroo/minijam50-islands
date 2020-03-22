@@ -143,8 +143,11 @@ MonoBehaviour:
   animationJumping: []
   timeFalling: 0
   animationFalling: []
-  timeAttack: 0
-  animationAttack: []
+  timeAttack: 0.1
+  animationAttack:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   timeDying: 0
   animationDying: []
   slaves: []

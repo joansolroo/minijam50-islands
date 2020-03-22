@@ -474,7 +474,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -943318867982752447, guid: 3710809c1afecf644b0737b639071b70,
     type: 3}
-  m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -514,7 +514,12 @@ MonoBehaviour:
   timeFalling: 0.1
   animationFalling: []
   timeAttack: 0.1
-  animationAttack: []
+  animationAttack:
+  - {fileID: 793717845376639655, guid: 9d75cc169586ddc45bcc65ff79d1ae6a, type: 3}
+  - {fileID: -3265267015815082369, guid: 9d75cc169586ddc45bcc65ff79d1ae6a, type: 3}
+  - {fileID: 793717845376639655, guid: 9d75cc169586ddc45bcc65ff79d1ae6a, type: 3}
+  - {fileID: -3075536019353721143, guid: 0fc260c077653344580075c64b048284, type: 3}
+  - {fileID: 488566688391327861, guid: 0fc260c077653344580075c64b048284, type: 3}
   timeDying: 0.1
   animationDying: []
   slaves: []
@@ -537,7 +542,7 @@ MonoBehaviour:
   pile: {fileID: 1191451617712991735}
   jumping: 0
   distToGround: 0
-  goToBase: 0
+  combat: 0
 --- !u!1 &7271970795294673876
 GameObject:
   m_ObjectHideFlags: 0

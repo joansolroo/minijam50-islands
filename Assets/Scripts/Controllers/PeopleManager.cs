@@ -36,6 +36,7 @@ public class PeopleManager : MonoBehaviour
     {
         playerPositions.Clear();
     }
+
     public void AddFollower()
     {
         if (HasAvailableFollower())
@@ -54,7 +55,6 @@ public class PeopleManager : MonoBehaviour
             idle.RemoveAt(0);
         }
     }
-
     public void RemoveFollower(int idx, List<ResourceType> resourceToCarry)
     {
         var agent = agents[idx];
@@ -63,7 +63,6 @@ public class PeopleManager : MonoBehaviour
 
         agents.RemoveAt(idx);
         agent.target = boat.position;
-        agent.goToBase = true;
 
         foreach (var res in resourceToCarry)
             agent.AddResource(res);
@@ -74,7 +73,6 @@ public class PeopleManager : MonoBehaviour
                 f.speed = 2.5f * player.speed;
         }
     }
-
     public void AddNewAgent(Vector3 position)
     {
         var newAgent = GameObject.Instantiate<Follower>(followerTemplate);
@@ -83,11 +81,20 @@ public class PeopleManager : MonoBehaviour
         idle.Add(newAgent);
 
         newAgent.target = boat.position;
-        newAgent.goToBase = true;
 
         if (agents.Count == 0)
             newAgent.speed = 2f * player.speed;
     }
+
+    public void EngageCombat(List<Vector3> positions)
+    {
+        foreach (Follower agent in agents)
+        {
+            agent.target = positions[Random.Range(0, positions.Count)];
+            agent.combat = true;
+        }
+    }
+
     private void Update()
     {
         removeCounter += 0.8f * Time.deltaTime;
@@ -105,14 +112,18 @@ public class PeopleManager : MonoBehaviour
             removeCounter = 0f;
         }
         
-        for (int i = 0; i < agents.Count; i++)
+        if(!player.fighting)
         {
-            int index = (int)((i + 1.5f) * actionDelay);
-            Follower agent = agents[i];
-
-            if(playerPositions.Count > index)
+            for (int i = 0; i < agents.Count; i++)
             {
-                agent.target = playerPositions[index];
+                int index = (int)((i + 1.5f) * actionDelay);
+                Follower agent = agents[i];
+
+                agent.combat = false;
+                if(playerPositions.Count > index)
+                {
+                    agent.target = playerPositions[index];
+                }
             }
         }
     }

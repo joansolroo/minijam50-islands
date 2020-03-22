@@ -21,6 +21,7 @@ public class Camp : MonoBehaviour
     public Boat boat;
     void Start()
     {
+        campInventory.Add("Food", 10);
         box = GetComponent<BoxCollider2D>();
 
         woodText.text = "0/" + woodGoal.ToString();

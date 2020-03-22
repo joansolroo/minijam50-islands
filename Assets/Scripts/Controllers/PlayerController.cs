@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     [Header("Properties")]
     public int maxStamina = 5;
     private int stamina;
+    public bool canMove = true;
     public bool hurt = false;
     public bool fighting = false;
     public bool hasFollowers = true;
+
     [Header("Links")]
     [SerializeField] Level level;
     [SerializeField] Map map;
@@ -124,13 +126,16 @@ public class PlayerController : MonoBehaviour
 
         velocity = new Vector2(input.dx * speed, body.velocity.y);
         Vector3 dummy = Vector3.zero;
-        body.velocity = velocity;
+
+        if(canMove)
+            body.velocity = velocity;
 
         if (input.dx == 0f)
             animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0f);
         else
         {
-            direction = input.dx * Vector3.right;
+            if (canMove)
+                direction = input.dx * Vector3.right;
             animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
         }
         if (input.doInteract)
@@ -204,7 +209,7 @@ public class PlayerController : MonoBehaviour
 
     public void Fight(EnemyController enemy)
     {
-        enemy.Fight(this);
+        enemy.Fight(this, followers);
     }
     public void StateChanged()
     {
