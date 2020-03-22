@@ -11,7 +11,7 @@ public class Camp : MonoBehaviour
     public TextMesh woodText;
     public TextMesh foodText;
     public PeopleManager folowerManager;
-
+    public Transform followerSpawn;
     private BoxCollider2D box;
     private RaycastHit2D[] scan = new RaycastHit2D[20];
 
@@ -42,7 +42,7 @@ public class Camp : MonoBehaviour
                     if(type == ResourceType.People)
                     {
                         for (int p = 0; p < pileItems[type]; ++p) {
-                            folowerManager.AddNewAgent(this.transform.position);
+                            folowerManager.AddNewAgent(followerSpawn.position);
                         }
                     }
                     if (campInventory.ContainsKey(type))
