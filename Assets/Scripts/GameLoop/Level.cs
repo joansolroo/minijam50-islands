@@ -97,6 +97,7 @@ public class Level : MonoBehaviour
         else if(previousBiome.position > currentBiome.position)
         {
             player.DoRetreat();
+            camp.folowerManager.Retreat();
         }
         
         StateChanged();

@@ -42,6 +42,11 @@ public class PeopleManager : MonoBehaviour
 
     public void AddFollower()
     {
+        foreach (Follower f in agents)
+            f.speed = player.speed;
+        foreach (Follower f in idle)
+            f.speed = player.speed;
+
         if (HasAvailableFollower())
         {
             int idx = agents.Count;
@@ -91,6 +96,14 @@ public class PeopleManager : MonoBehaviour
 
         if (agents.Count == 0)
             newAgent.speed = 2f * player.speed;
+    }
+
+    public void Retreat()
+    {
+        foreach (Follower f in idle)
+            f.speed = 2.5f * player.speed;
+        foreach (Follower f in agents)
+            f.speed = 2.5f * player.speed;
     }
 
     public void EngageCombat(List<Vector3> positions, bool combat = true)
