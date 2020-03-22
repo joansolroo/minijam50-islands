@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followerTemplate: {fileID: 2987772602948733418, guid: 3962ac9f0c1c14f4cb3502fc9f074c02,
     type: 3}
+  ghostAITemplate: {fileID: 7900007988434878355, guid: 2f207856897ff494aa0df0785eac61ef,
+    type: 3}
   idleContainer: {fileID: 7945955010395758407}
   activeContainer: {fileID: 3550710781578545204}
   player: {fileID: 0}

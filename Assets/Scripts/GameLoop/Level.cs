@@ -17,6 +17,8 @@ public class Level : MonoBehaviour
     [SerializeField] GameObject tiredCover;
     [SerializeField] GameObject fightCover;
     [SerializeField] GameObject hurtCover;
+    [SerializeField] GameObject winCover;
+    [SerializeField] GameObject loseCover;
     [Header("Properties")]
     [SerializeField] int seed;
     [SerializeField] int maxDays = 30;
@@ -62,6 +64,15 @@ public class Level : MonoBehaviour
 
     public void StateChanged()
     {
+        if (camp.win)
+        {
+            winCover.SetActive(true);
+        }
+        if (camp.gameOver)
+        {
+            loseCover.SetActive(true);
+        }
+
         fightCover.SetActive(player.fighting);
         hurtCover.SetActive(player.hurt);
         tiredCover.SetActive(!player.hurt && player.Stamina <= 0);

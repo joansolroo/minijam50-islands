@@ -17,7 +17,7 @@ public class Follower : MonoBehaviour
     public bool jumping = false;
     public float distToGround;
     public bool combat = false;
-
+    public bool alive = true;
     void Start()
     {
         verticalVelocity = 0;
@@ -28,46 +28,54 @@ public class Follower : MonoBehaviour
     
     void Update()
     {
-        Vector3 delta = (target - transform.position).normalized * speed * Time.deltaTime;
-        if ((target - transform.position).sqrMagnitude < 0.001f || !canMove)
-            delta = Vector3.zero;
-        if (combat)
-            delta.y = 0;
-
-        jumping = !IsGrounded();
-        if (jumping)
-            verticalVelocity -= 9.81f * Time.deltaTime;
+        if (!alive)
+        {
+            animationController.playAnimation(AnimationController.AnimationType.DYING, direction.x < 0);
+            return;
+        }
         else
-            verticalVelocity = 0f;
-        if (delta.y > 0.01f && !jumping)
         {
-            jumping = true;
-            verticalVelocity = jumpForce * Time.deltaTime;
-        }
-        
-        
-        delta = new Vector3(delta.x, verticalVelocity * Time.deltaTime, 0);
-        if(canMove)
-            transform.position += delta;
-
-        if (lastPosition != transform.position)
-        {
-            if (canMove)
-                direction = transform.position - lastPosition;
-            direction.Normalize();
-        }
-
-        if (delta.sqrMagnitude < 0.000001f)
-        {
+            Vector3 delta = (target - transform.position).normalized * speed * Time.deltaTime;
+            if ((target - transform.position).sqrMagnitude < 0.001f || !canMove)
+                delta = Vector3.zero;
             if (combat)
-                animationController.playAnimation(AnimationController.AnimationType.ATTACK, direction.x < 0);
-            else
-                animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0);
-        }
-        else
-            animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0);
+                delta.y = 0;
 
-        lastPosition = transform.position;
+            jumping = !IsGrounded();
+            if (jumping)
+                verticalVelocity -= 9.81f * Time.deltaTime;
+            else
+                verticalVelocity = 0f;
+            if (delta.y > 0.01f && !jumping)
+            {
+                jumping = true;
+                verticalVelocity = jumpForce * Time.deltaTime;
+            }
+
+
+            delta = new Vector3(delta.x, verticalVelocity * Time.deltaTime, 0);
+            if (canMove)
+                transform.position += delta;
+
+            if (lastPosition != transform.position)
+            {
+                if (canMove)
+                    direction = transform.position - lastPosition;
+                direction.Normalize();
+            }
+
+            if (delta.sqrMagnitude < 0.000001f)
+            {
+                if (combat)
+                    animationController.playAnimation(AnimationController.AnimationType.ATTACK, direction.x < 0);
+                else
+                    animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0);
+            }
+            else
+                animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0);
+
+            lastPosition = transform.position;
+        }
     }
 
     private bool IsGrounded()
@@ -77,5 +85,12 @@ public class Follower : MonoBehaviour
     public void AddResource(ResourceType type)
     {
         pile.Add(type);
+    }
+
+    public void Die()
+    {
+        Debug.Log("Dying");
+        alive = false;
+        animationController.playAnimation(AnimationController.AnimationType.DYING, direction.x < 0);
     }
 }

@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PeopleManager : MonoBehaviour
 {
     [SerializeField] Follower followerTemplate;
+    [SerializeField] PlayerAIInput ghostAITemplate;
     [SerializeField] Transform idleContainer;
     [SerializeField] Transform activeContainer;
 
@@ -22,7 +24,7 @@ public class PeopleManager : MonoBehaviour
 
     private void Start()
     {
-       
+
     }
     public bool HasAvailableFollower()
     {
@@ -43,7 +45,7 @@ public class PeopleManager : MonoBehaviour
         {
             int idx = agents.Count;
             var agent = idle[0];
-            
+
             agent.gameObject.name = "folower [" + idx + "]";
             agent.speed = player.speed;
             agent.jumpForce = player.jumpForce;
@@ -68,9 +70,9 @@ public class PeopleManager : MonoBehaviour
         foreach (var res in resourceToCarry)
             agent.AddResource(res);
 
-        if(agents.Count == 0)
+        if (agents.Count == 0)
         {
-            foreach(Follower f in idle)
+            foreach (Follower f in idle)
                 f.speed = 2.5f * player.speed;
         }
     }
@@ -94,14 +96,42 @@ public class PeopleManager : MonoBehaviour
         {
             agent.target = positions[i];
             agent.combat = combat;
-            i = (i+1)% positions.Count;
+            i = (i + 1) % positions.Count;
         }
     }
 
     public int GetIndex(int followerId)
     {
         int spacing = Mathf.Min(actionDelay, (int)(100 / (1 + (float)agents.Count)));
-        return Mathf.Clamp((int)((followerId+2)* spacing), actionDelay,Mathf.Clamp(playerPositions.Count-1,5,99));
+        return Mathf.Clamp((int)((followerId + 2) * spacing), actionDelay, Mathf.Clamp(playerPositions.Count - 1, 5, 99));
+    }
+
+    internal bool KillFollower()
+    {
+        if (idle.Count > 0)
+        {
+            var agent = idle[0];
+            agent.Die();
+            AddGhost(agent.transform.position);
+            idle.RemoveAt(0);
+            return true;
+        }
+        else if (agents.Count > 0)
+        {
+            var agent = agents[0];
+            AddGhost(agent.transform.position);
+            agent.Die();
+            agents.RemoveAt(0);
+            return true;
+        }
+        return false;
+    }
+    public void AddGhost(Vector3 position)
+    {
+        var ghost = GameObject.Instantiate<PlayerAIInput>(ghostAITemplate);
+        ghost.transform.position = position;
+        ghost.transform.parent = idleContainer;
+       
     }
 
     private void Update()
@@ -109,7 +139,7 @@ public class PeopleManager : MonoBehaviour
         player.maxStamina = idle.Count + agents.Count;
 
         removeCounter += 0.8f * Time.deltaTime;
-        
+
         if ((player.transform.position - lastPlayerPosition).sqrMagnitude > 0.001f)
         {
             playerPositions.Insert(0, player.transform.position);
@@ -117,13 +147,13 @@ public class PeopleManager : MonoBehaviour
                 playerPositions.RemoveAt(playerPositions.Count - 1);
             lastPlayerPosition = player.transform.position;
         }
-        if(playerPositions.Count>0 && removeCounter >= removeCooldown)
+        if (playerPositions.Count > 0 && removeCounter >= removeCooldown)
         {
             playerPositions.RemoveAt(playerPositions.Count - 1);
             removeCounter = 0f;
         }
-        
-        if(!player.fighting)
+
+        if (!player.fighting)
         {
             for (int i = 0; i < agents.Count; i++)
             {
@@ -131,7 +161,7 @@ public class PeopleManager : MonoBehaviour
                 Follower agent = agents[i];
 
                 agent.combat = false;
-                if(playerPositions.Count > index)
+                if (playerPositions.Count > index)
                 {
                     agent.target = playerPositions[index];
                 }
@@ -151,7 +181,7 @@ public class PeopleManager : MonoBehaviour
         {
             Gizmos.color = Color.green;
             Vector3 previous = playerPositions[0];
-            for(int p = 1; p < playerPositions.Count; ++p)
+            for (int p = 1; p < playerPositions.Count; ++p)
             {
                 Vector3 current = playerPositions[p];
                 Gizmos.DrawLine(previous, current);
