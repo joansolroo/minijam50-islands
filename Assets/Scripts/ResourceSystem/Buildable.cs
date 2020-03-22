@@ -3,22 +3,28 @@ using UnityEngine;
 
 public abstract class Buildable : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField] new SpriteRenderer renderer;
+    [SerializeField] Sprite[] buildSprites;
     private List<BuildableStep> steps;
 
     [SerializeField]
     private Wood wood;
 
     private BuildableStep currentStep;
-
-    public float progress
+    private float progress = 0;
+    public float Progress
     {
         get
         {
-            return wood.Value / (float)wood.Max;
+            return progress;
+        }
+        set
+        {
+            progress = value;
+            renderer.sprite = buildSprites[(int)(buildSprites.Length * progress)];
         }
     }
-    public void Upgrade(float woodValue)
+    /*public void Upgrade(float woodValue)
     {
         wood.Add(woodValue);
 
@@ -70,5 +76,5 @@ public abstract class Buildable : MonoBehaviour
 
         step.gameObject.SetActive(true);
         currentStep = step;
-    }
+    }*/
 }

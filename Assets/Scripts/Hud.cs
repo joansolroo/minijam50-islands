@@ -25,7 +25,7 @@ public class Hud : MonoBehaviour
 
     private void LateUpdate()
     {
-        boatText.text = "Boat:"+(int)(boat.progress*100)+'%';
+        boatText.text = "Boat:"+(int)(boat.Progress*100)+'%';
 
         UpdateDayTime();
         UpdatePlayerResources();

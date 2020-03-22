@@ -93,14 +93,14 @@ public class ResourcePile : MonoBehaviour
         hands.enabled = false;
     }
 
-    public Dictionary<string, int> GetResourceList()
+    public Dictionary<ResourceType, int> GetResourceList()
     {
-        Dictionary<string, int> result = new Dictionary<string, int>();
+        Dictionary<ResourceType, int> result = new Dictionary<ResourceType, int>();
         foreach(ResourcePileTemplate res in resources)
         {
-            if (result.ContainsKey(res.gameObject.name))
-                result[res.gameObject.name]++;
-            else result.Add(res.gameObject.name, 1);
+            if (result.ContainsKey(res.type))
+                result[res.type]++;
+            else result.Add(res.type, 1);
         }
         return result;
     }

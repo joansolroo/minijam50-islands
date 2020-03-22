@@ -15,14 +15,17 @@ public class Camp : MonoBehaviour
     private BoxCollider2D box;
     private RaycastHit2D[] scan = new RaycastHit2D[20];
 
-    public Dictionary<string, int> campInventory = new Dictionary<string, int>();
+    public Dictionary<ResourceType, int> campInventory = new Dictionary<ResourceType, int>();
 
+    public int initialFood = 10;
+    public Boat boat;
     void Start()
     {
         box = GetComponent<BoxCollider2D>();
 
         woodText.text = "0/" + woodGoal.ToString();
-        foodText.text = "0<color=red>-" + folowerManager.GetFollowerCount().ToString() + "</color>";
+        foodText.text = initialFood + "<color=red>-" + folowerManager.GetFollowerCount().ToString() + "</color>";
+        campInventory[ResourceType.Food] = initialFood;
     }
     
     void Update()
@@ -34,15 +37,18 @@ public class Camp : MonoBehaviour
             {
                 ResourcePile resPile = scan[i].collider.gameObject.GetComponent<ResourcePile>();
                 var pileItems = resPile.GetResourceList();
-                foreach (KeyValuePair<string, int> entry in pileItems)
+                foreach (var type in pileItems.Keys)
                 {
-                    if (campInventory.ContainsKey(entry.Key))
-                        campInventory[entry.Key] += entry.Value;
-                    else campInventory.Add(entry.Key, entry.Value);
+                    if(type == ResourceType.People)
+                    {
+                        folowerManager.AddNewAgent(this.transform.position);
+                    }
+                    if (campInventory.ContainsKey(type))
+                        campInventory[type] += pileItems[type];
+                    else campInventory.Add(type, pileItems[type]);
                 }
                 resPile.Clear();
             }
-
             woodText.text = GetWood().ToString() + "/" + woodGoal.ToString();
             foodText.text = GetFood().ToString() + "<color=red>-" + folowerManager.GetFollowerCount().ToString() + "</color>";
         }
@@ -50,24 +56,30 @@ public class Camp : MonoBehaviour
 
     public void NextDay()
     {
-        if (!campInventory.ContainsKey("Food") || campInventory["Food"] <= 0)
+        if (!campInventory.ContainsKey(ResourceType.Food) || campInventory[ResourceType.Food] <= 0)
             gameOver = true;
         else
         {
-            campInventory["Food"] -= folowerManager.GetFollowerCount();
-            if (campInventory["Food"] <= 0)
+           
+            campInventory[ResourceType.Food] -= folowerManager.GetFollowerCount();
+            if (campInventory[ResourceType.Food] <= 0)
                 gameOver = true;
-            if (campInventory.ContainsKey("Wood") && campInventory["Wood"] >= woodGoal)
-                win = true;
+            if (campInventory.ContainsKey(ResourceType.Wood)) {
+                boat.Progress = campInventory[ResourceType.Wood] / (float)woodGoal;
+                if (campInventory[ResourceType.Wood] >= woodGoal)
+                {
+                    win = true;
+                }
+            }
         }
     }
 
     public int GetFood()
     {
-        return campInventory.ContainsKey("Food") ? campInventory["Food"] : 0;
+        return campInventory.ContainsKey(ResourceType.Food) ? campInventory[ResourceType.Food] : 0;
     }
     public int GetWood()
     {
-        return campInventory.ContainsKey("Wood") ? campInventory["Wood"] : 0;
+        return campInventory.ContainsKey(ResourceType.Wood) ? campInventory[ResourceType.Wood] : 0;
     }
 }
