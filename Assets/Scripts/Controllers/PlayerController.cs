@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private int stamina;
     public bool canMove = true;
     public bool hurt = false;
+    public bool death = false;
     public bool fighting = false;
     public bool hasFollowers = true;
 
@@ -127,29 +128,34 @@ public class PlayerController : MonoBehaviour
         velocity = new Vector2(input.dx * speed, body.velocity.y);
         Vector3 dummy = Vector3.zero;
 
-        if(canMove)
+        if(canMove && !death)
             body.velocity = velocity;
 
-        if (input.dx == 0f)
-            animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0f);
+        if(death)
+            animationController.playAnimation(AnimationController.AnimationType.DYING, direction.x < 0f);
         else
         {
-            if (canMove)
-                direction = input.dx * Vector3.right;
-            animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
-        }
-        if (input.doInteract)
-        {
-            if (buildable)
+            if (input.dx == 0f)
+                animationController.playAnimation(AnimationController.AnimationType.IDLE, direction.x < 0f);
+            else
             {
-                TryUpgradeBuildable(buildable);
+                if (canMove && !death)
+                    direction = input.dx * Vector3.right;
+                animationController.playAnimation(AnimationController.AnimationType.WALKING, direction.x < 0f);
             }
-            if (Stamina > 0 && currentBiome != null && !currentBiome.enemy)
+            if (input.doInteract)
             {
-                if (resources.TryCollect(currentBiome))
+                if (buildable)
                 {
-                    --Stamina;
-                    StateChanged();
+                    TryUpgradeBuildable(buildable);
+                }
+                if (Stamina > 0 && currentBiome != null && !currentBiome.enemy)
+                {
+                    if (resources.TryCollect(currentBiome))
+                    {
+                        --Stamina;
+                        StateChanged();
+                    }
                 }
             }
         }

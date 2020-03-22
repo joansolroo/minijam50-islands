@@ -8,9 +8,9 @@ public class AnimationController : MonoBehaviour
     [HideInInspector]
     public SpriteRenderer sr;
 
-    private int animationIndex;
+    public int animationIndex;
     private float animationTime;
-    private AnimationType lastAnimation;
+    public AnimationType lastAnimation;
 
     //public Weapon weapon;
 
@@ -144,7 +144,10 @@ public class AnimationController : MonoBehaviour
         if (animationTime >= t)
         {
             animationTime -= t;
-            animationIndex = (animationIndex + 1) % animation.Length;
+            if (lastAnimation != AnimationType.DYING)
+                animationIndex = (animationIndex + 1) % animation.Length;
+            else
+                animationIndex = Mathf.Min(animationIndex + 1, animation.Length -1);
             sr.sprite = animation[animationIndex];
             sr.flipX = flipped;
         }

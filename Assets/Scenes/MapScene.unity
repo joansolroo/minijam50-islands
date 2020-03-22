@@ -1611,7 +1611,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
