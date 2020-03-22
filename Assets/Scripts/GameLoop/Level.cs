@@ -26,9 +26,14 @@ public class Level : MonoBehaviour
     [Header("Status")]
     [SerializeField] int currentDay = 0;
 
+    [Header("Audio")]
     private AudioSource audiosource;
     public AudioClip endDaySound;
     public AudioClip startDaySound;
+
+    [Header("End")]
+    public BoatEnd boatEnding;
+    public GameObject islandLimit;
 
     public void Initialize()
     {
@@ -100,7 +105,6 @@ public class Level : MonoBehaviour
         Debug.Log("Restart");
     }
     
-
     public void QuitLevel()
     {
         Debug.Log("Quit");
@@ -112,6 +116,44 @@ public class Level : MonoBehaviour
     }
     public void OnWin()
     {
-        Debug.Log("Win");
+        camp.boat.gameObject.SetActive(false);
+        boatEnding.gameObject.SetActive(true);
+        for (int i = 0; i < boatEnding.slots.Count; i++)
+            boatEnding.slots[i] += boatEnding.transform.position;
+        camp.folowerManager.EngageCombat(boatEnding.slots, false);
+        player.GetComponent<PlayerInput>().enabled = false;
+        player.SetInput(new PlayerController.InputData { doJump = false, dx = -1, doInteract = false });
+        StartCoroutine(PlayerMovementEnding());
+        camp.folowerManager.enabled = false;
+        islandLimit.SetActive(false);
+    }
+
+
+
+
+    private IEnumerator PlayerMovementEnding()
+    {
+        while(player.transform.position.x > boatEnding.transform.position.x + boatEnding.captainSlot.x)
+        {
+            player.SetInput(new PlayerController.InputData { doJump = false, dx = -1, doInteract = false });
+            camp.folowerManager.ResetPath();
+            yield return new WaitForFixedUpdate();
+        }
+        player.SetInput(new PlayerController.InputData { doJump = false, dx = 0, doInteract = false });
+    }
+    private IEnumerator EndCoregraphy()
+    {
+        yield return new WaitForSeconds(3f);
+
+        camp.folowerManager.enabled = false;
+        foreach(Follower agent in camp.folowerManager.idle)
+        {
+            agent.transform.parent = boatEnding.transform;
+            boatEnding.speed = -1f;
+        }
+
+        yield return new WaitForSeconds(8f);
+
+
     }
 }

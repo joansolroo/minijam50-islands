@@ -224,6 +224,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &239601060 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4059351561119512184, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5624234171692937219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b342741de29985d4ba22649e53b70df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &313501735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3685531413887055297, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
@@ -1232,6 +1244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: woodGoal
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967422559263329522, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: win
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2034502638252603473, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -2512,6 +2529,11 @@ PrefabInstance:
       propertyPath: cinemachineVirtualCamera
       value: 
       objectReference: {fileID: 738370698}
+    - target: {fileID: 5624234170885760481, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: boatEnding
+      value: 
+      objectReference: {fileID: 239601060}
     - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: biomeDistribution.m_Curve.Array.size
@@ -2690,7 +2712,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[2].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -2710,7 +2732,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[10].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -2735,7 +2757,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[18].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}

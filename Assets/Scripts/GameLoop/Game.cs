@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
 
     [SerializeField] GameObject coverScreen;
     [SerializeField] GameObject mainMenu;
+    
     public enum GameStatus
     {
         Uninitialized, Cover, Start, Menu, Play, Paused
@@ -67,6 +68,6 @@ public class Game : MonoBehaviour
     }
     public void OnWin()
     {
-        Debug.Log("Win");
+        
     }
 }
