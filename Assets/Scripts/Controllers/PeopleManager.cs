@@ -93,6 +93,7 @@ public class PeopleManager : MonoBehaviour
         idle.Add(newAgent);
 
         newAgent.target = boat.position;
+        newAgent.distToGround = player.distToGround;
 
         newAgent.speed = player.speed;
         newAgent.jumpForce = player.jumpForce;
