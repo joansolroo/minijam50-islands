@@ -93,6 +93,7 @@ public class PeopleManager : MonoBehaviour
         idle.Add(newAgent);
 
         newAgent.target = boat.position;
+        newAgent.distToGround = player.distToGround;
 
         if (agents.Count == 0)
             newAgent.speed = 2f * player.speed;
