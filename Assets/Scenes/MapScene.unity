@@ -431,7 +431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -42.3, y: -32}
+  m_AnchoredPosition: {x: -50, y: -32}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &702863009
@@ -1542,9 +1542,17 @@ PrefabInstance:
       propertyPath: m_Spacing
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 720486285, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -324
+      objectReference: {fileID: 0}
+    - target: {fileID: 720486285, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1277469272, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1277469273, guid: 6a0ba625dde5c87448ee0c924a6c2c3f, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1664,6 +1672,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_Alignment
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5624234170642482952, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5624234170885760481, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: loseCover
@@ -1717,12 +1730,12 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[8].second.m_AnimationSpeed
-      value: 3.0000002
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[23].second.m_AnimationSpeed
-      value: 3
+      value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1757,6 +1770,21 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 3.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[12].second.m_AnimationSpeed
+      value: 3.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[20].second.m_AnimationSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[6].second.m_AnimationSpeed
       value: 3.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171538513716, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
@@ -1824,6 +1852,11 @@ PrefabInstance:
       propertyPath: coverScreen
       value: 
       objectReference: {fileID: 3526786074907190292}
+    - target: {fileID: 7020147639361864857, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9169706776946113710, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnchorMin.y
