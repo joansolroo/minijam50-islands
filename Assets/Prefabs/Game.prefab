@@ -2848,7 +2848,7 @@ Tilemap:
       - {fileID: -6764258631168988302, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: 3924969199412559223, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: -8337174853779249273, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -27, y: 0, z: 0}
@@ -2861,7 +2861,7 @@ Tilemap:
       - {fileID: -6764258631168988302, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: 3924969199412559223, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: -8337174853779249273, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -26, y: 0, z: 0}
@@ -2913,7 +2913,7 @@ Tilemap:
       - {fileID: -6764258631168988302, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: 3924969199412559223, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
       - {fileID: -8337174853779249273, guid: 0fb2e020e86583a4899aa6ac4ef1c315, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -22, y: 0, z: 0}
@@ -7354,6 +7354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123436134159708140, guid: d9e9a823705793644a343d485af447b0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9e9a823705793644a343d485af447b0, type: 3}

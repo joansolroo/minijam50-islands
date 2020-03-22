@@ -96,6 +96,12 @@ public class PeopleManager : MonoBehaviour
         }
     }
 
+    public int GetIndex(int followerId)
+    {
+        int spacing = Mathf.Min(actionDelay, (int)(100 / (1 + (float)agents.Count)));
+        return Mathf.Clamp((int)((followerId+2)* spacing), actionDelay,100-1);
+    }
+
     private void Update()
     {
         player.maxStamina = idle.Count + agents.Count;
@@ -119,7 +125,7 @@ public class PeopleManager : MonoBehaviour
         {
             for (int i = 0; i < agents.Count; i++)
             {
-                int index = (int)((i + 1.5f) * actionDelay);
+                int index = GetIndex(i);
                 Follower agent = agents[i];
 
                 agent.combat = false;
@@ -134,5 +140,35 @@ public class PeopleManager : MonoBehaviour
     public int GetFollowerCount()
     {
         return idle.Count + agents.Count;
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        if (playerPositions.Count > 1)
+        {
+            Gizmos.color = Color.green;
+            Vector3 previous = playerPositions[0];
+            for(int p = 1; p < playerPositions.Count; ++p)
+            {
+                Vector3 current = playerPositions[p];
+                Gizmos.DrawLine(previous, current);
+                previous = current;
+            }
+
+            Gizmos.color = Color.white;
+            for (int i = 0; i < agents.Count; i++)
+            {
+                int index = GetIndex(i);
+                Follower agent = agents[i];
+
+                agent.combat = false;
+                if (playerPositions.Count > index)
+                {
+                    Vector3 current = playerPositions[index];
+                    Gizmos.DrawLine(agent.transform.position, current);
+                }
+            }
+        }
     }
 }
