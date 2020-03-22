@@ -9,6 +9,9 @@ public class Hud : MonoBehaviour
     [Header("Player")]
     public PlayerController player;
     public Text staminaText;
+    public GameObject buttonInteract;
+    public GameObject buttonRetreat;
+    public GameObject buttonNext;
 
     [Header("Player")]
     public Boat boat;
@@ -27,8 +30,17 @@ public class Hud : MonoBehaviour
     {
         boatText.text = "Boat:"+(int)(boat.Progress*100)+'%';
 
+        UpdateHelp();
         UpdateDayTime();
         UpdatePlayerResources();
+    }
+
+    public void UpdateHelp()
+    {
+        //buttonRetreat.SetActive(player.)
+        buttonInteract.SetActive(player.CanInteract());
+        buttonRetreat.SetActive(!player.AtBase());
+        buttonNext.SetActive(player.Stamina > 0);
     }
     private void UpdateDayTime()
     {
@@ -40,7 +52,7 @@ public class Hud : MonoBehaviour
     }
     private void UpdatePlayerResources()
     {
-        staminaText.text = $"Stamina: {player.Stamina}";
+        staminaText.text = $"Crew: {player.Stamina}/{player.maxStamina}";
         foodText.text = $"Food: {camp.GetFood()}";
         woodText.text = $"Wood: {camp.GetWood()}";
     }

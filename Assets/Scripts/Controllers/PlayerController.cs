@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
                 {
                     TryUpgradeBuildable(buildable);
                 }
-                if (Stamina > 0 && currentBiome != null && !currentBiome.enemy)
+                if (Stamina > 0 && CanInteract())
                 {
                     if (resources.TryCollect(currentBiome))
                     {
@@ -161,6 +161,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public bool CanInteract()
+    {
+        return currentBiome != null && !currentBiome.enemy && currentBiome.HasResource;
+    }
+    public bool AtBase()
+    {
+        return currentBiome == map.startBiome;
+    }
     private bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, -Vector3.up, distToGround, 1 << LayerMask.NameToLayer("Ground"));

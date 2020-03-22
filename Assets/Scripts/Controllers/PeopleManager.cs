@@ -98,8 +98,10 @@ public class PeopleManager : MonoBehaviour
 
     private void Update()
     {
-        removeCounter += 0.8f * Time.deltaTime;
+        player.maxStamina = idle.Count + agents.Count;
 
+        removeCounter += 0.8f * Time.deltaTime;
+        
         if ((player.transform.position - lastPlayerPosition).sqrMagnitude > 0.001f)
         {
             playerPositions.Insert(0, player.transform.position);

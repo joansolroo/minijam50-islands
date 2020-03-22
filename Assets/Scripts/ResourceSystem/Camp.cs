@@ -41,7 +41,9 @@ public class Camp : MonoBehaviour
                 {
                     if(type == ResourceType.People)
                     {
-                        folowerManager.AddNewAgent(this.transform.position);
+                        for (int p = 0; p < pileItems[type]; ++p) {
+                            folowerManager.AddNewAgent(this.transform.position);
+                        }
                     }
                     if (campInventory.ContainsKey(type))
                         campInventory[type] += pileItems[type];
