@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             retreating = false;
             level.EndDay();
+            Rest();
         }
         StateChanged();
     }
