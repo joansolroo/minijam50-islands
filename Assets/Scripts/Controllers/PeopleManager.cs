@@ -209,8 +209,7 @@ public class PeopleManager : MonoBehaviour
             {
                 int index = GetIndex(i);
                 Follower agent = agents[i];
-
-                agent.combat = false;
+                
                 if (playerPositions.Count > index)
                 {
                     Vector3 current = playerPositions[index];
