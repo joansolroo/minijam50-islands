@@ -40,6 +40,7 @@ public class Level : MonoBehaviour
 
     public void Initialize()
     {
+        if (seed == 0) seed =(int)( Random.value* 65000);
         Random.InitState(seed);
         daySeeds = new int[maxDays];
         for (int i = 0; i < maxDays; ++i)
