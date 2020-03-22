@@ -137,7 +137,7 @@ public class Level : MonoBehaviour
     public void OnWin()
     {
         camp.boat.gameObject.SetActive(false);
-        boatEnding.transform.parent = null;
+        //boatEnding.transform.parent = null;
         boatEnding.gameObject.SetActive(true);
         for (int i = 0; i < boatEnding.slots.Count; i++)
             boatEnding.slots[i] += boatEnding.transform.position;
@@ -178,5 +178,6 @@ public class Level : MonoBehaviour
         boatEnding.speed = -1f;
         yield return new WaitForSeconds(8f);
         boatEnding.speed = 0f;
+        game.OnWin();
     }
 }
