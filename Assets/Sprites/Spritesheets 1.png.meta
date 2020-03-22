@@ -88,6 +88,12 @@ TextureImporter:
     second: TopWater3
   - first:
       213: 8350910257624433164
+    second: background
+  - first:
+      213: 6250724269064746508
+    second: Spritesheets 1_1
+  - first:
+      213: 588013514289816842
     second: Spritesheets 1_0
   externalObjects: {}
   serializedVersion: 11
@@ -128,7 +134,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 32
+  spriteExtrude: 2
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -172,14 +178,14 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -274,7 +280,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 160
         width: 48
         height: 48
       alignment: 0
@@ -294,8 +300,8 @@ TextureImporter:
       name: tree_green01
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
+        x: 79
+        y: 160
         width: 48
         height: 48
       alignment: 9
@@ -357,7 +363,7 @@ TextureImporter:
       name: dirt01
       rect:
         serializedVersion: 2
-        x: 32
+        x: 48
         y: 0
         width: 16
         height: 16
@@ -378,7 +384,7 @@ TextureImporter:
       name: dirt02
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -399,7 +405,7 @@ TextureImporter:
       name: grass01
       rect:
         serializedVersion: 2
-        x: 64
+        x: 112
         y: 0
         width: 16
         height: 16
@@ -420,7 +426,7 @@ TextureImporter:
       name: grass02
       rect:
         serializedVersion: 2
-        x: 80
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -480,27 +486,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Water5
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b5bb13161974ace0800000000000000
-      internalID: -1394856848861186634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Water6
       rect:
         serializedVersion: 2
@@ -546,7 +531,7 @@ TextureImporter:
       name: Water8
       rect:
         serializedVersion: 2
-        x: 14
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -568,7 +553,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 144
+        y: 96
         width: 48
         height: 48
       alignment: 7
@@ -588,7 +573,7 @@ TextureImporter:
       name: sand01
       rect:
         serializedVersion: 2
-        x: 96
+        x: 144
         y: 0
         width: 16
         height: 16
@@ -609,7 +594,7 @@ TextureImporter:
       name: sand02
       rect:
         serializedVersion: 2
-        x: 112
+        x: 160
         y: 0
         width: 16
         height: 16
@@ -711,10 +696,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spritesheets 1_0
+      name: background
       rect:
         serializedVersion: 2
-        x: 128
+        x: 208
         y: 0
         width: 16
         height: 16

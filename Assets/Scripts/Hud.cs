@@ -52,8 +52,8 @@ public class Hud : MonoBehaviour
     }
     private void UpdatePlayerResources()
     {
-        staminaText.text = $"Crew: {player.Stamina}/{player.maxStamina}";
-        foodText.text = $"Food: {camp.GetFood()}";
-        woodText.text = $"Wood: {camp.GetWood()}";
+        staminaText.text = $"{player.Stamina}/{player.maxStamina}";
+        foodText.text = $"{camp.GetFood()}";
+        woodText.text = $"{camp.GetWood()}";
     }
 }
