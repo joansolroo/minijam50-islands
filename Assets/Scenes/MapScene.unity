@@ -1236,6 +1236,11 @@ PrefabInstance:
       propertyPath: sky
       value: 
       objectReference: {fileID: 990451372}
+    - target: {fileID: 1967422559263329522, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: initialFood
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2158186013487753168, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -1311,6 +1316,31 @@ PrefabInstance:
       propertyPath: cinemachineVirtualCamera
       value: 
       objectReference: {fileID: 738370698}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeDistribution.m_Curve.Array.data[0].inSlope
+      value: 2.1052632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeDistribution.m_Curve.Array.data[0].outSlope
+      value: 2.1052632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeDistribution.m_Curve.Array.data[1].time
+      value: 0.475
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: biomeDistribution.m_Curve.Array.data[2].time
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234170885760482, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: numberOfBiome
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[8].second.m_AnimationSpeed
@@ -1364,7 +1394,7 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 3.0000002
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
@@ -1384,7 +1414,12 @@ PrefabInstance:
     - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[20].second.m_AnimationSpeed
-      value: 3.0000002
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624234171012601089, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
+        type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[21].second.m_AnimationSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5624234171314462415, guid: 6a0ba625dde5c87448ee0c924a6c2c3f,
         type: 3}
