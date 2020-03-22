@@ -6,4 +6,5 @@ using UnityEngine;
 public class BiomeLevelData : ScriptableObject
 {
     public AnimationCurve rangeOfResources;
+    public AnimationCurve rangeOfNMI;
 }

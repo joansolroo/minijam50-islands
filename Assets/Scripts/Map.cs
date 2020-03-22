@@ -90,7 +90,7 @@ public class Map : MonoBehaviour
             b.transform.parent = biomeContainer;
             b.gameObject.SetActive(true);
 
-            bool hasEnemy = Random.value < 0.5f;
+            bool hasEnemy = biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfNMI.Evaluate(Random.value) > 0.5f;
             if (hasEnemy)
             {
                 Vector3 position = enemyTemplate.transform.position;
