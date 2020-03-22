@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int strength = 1;
     public float fightDuration;
     public List<Vector3> combatSpots;
+    public AudioSource audiosource;
+    public AudioClip enemmyDie;
 
     public void Fight(PlayerController player, PeopleManager followers)
     {
@@ -25,10 +27,17 @@ public class EnemyController : MonoBehaviour
         for(int i=0; i<combatSpots.Count; i++)
             combatSpots[i] += transform.position;
         followers.EngageCombat(combatSpots);
-        yield return new WaitForSeconds(strength * fightDuration);
-
-
-        player.Stamina -= 1;
+        
+        // fight
+        for(int i=0; i<strength; i++)
+        {
+            yield return new WaitForSeconds(i==0 ? 5f : fightDuration);
+            player.Stamina--;
+            if (player.Stamina <= 0)
+                break;
+        }
+        
+        // resolve
         bool die = false;
         if (player.Stamina <= 0)
         {
@@ -39,20 +48,23 @@ public class EnemyController : MonoBehaviour
             die = true;
         }
         player.fighting = false;
-
+        player.canMove = true;
         player.StateChanged();
 
+        audiosource.clip = enemmyDie;
+        audiosource.Play();
+        GetComponent<PlayerController>().death = true;
+
+        yield return new WaitForSeconds(0.43f * 6);
         if (die)
         {
             Die();
         }
-        player.canMove = true;
     }
 
     public void Die()
     {
         biome.enemy = null;
         GameObject.Destroy(this.gameObject);
-        
     }
 }

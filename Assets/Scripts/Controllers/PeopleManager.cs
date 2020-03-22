@@ -63,6 +63,7 @@ public class PeopleManager : MonoBehaviour
 
         agents.RemoveAt(idx);
         agent.target = boat.position;
+        agent.combat = false;
 
         foreach (var res in resourceToCarry)
             agent.AddResource(res);

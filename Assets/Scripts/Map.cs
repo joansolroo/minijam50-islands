@@ -11,6 +11,7 @@ public class Map : MonoBehaviour
     [SerializeField] public Biome startBiome;
     [SerializeField] public Biome endBiome;
     [SerializeField] List<Biome> biomeTemplates;
+    [SerializeField] AnimationCurve biomeDistribution;
     [SerializeField] EnemyController enemyTemplate;
     [Header("Biome Level")]
     [SerializeField] List<BiomeLevelData> biomeLevels;
@@ -76,7 +77,7 @@ public class Map : MonoBehaviour
 
         for (int i = 0; i < numberOfBiome; i++)
         {
-            var template = biomeTemplates[Random.Range(0, biomeTemplates.Count)];
+            var template = biomeTemplates[(int)biomeDistribution.Evaluate(Random.value)];
             Biome b = Instantiate(template);
             //setting up the value
             b.SetValue(biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfResources.Evaluate(Random.value));
@@ -90,7 +91,7 @@ public class Map : MonoBehaviour
             b.transform.parent = biomeContainer;
             b.gameObject.SetActive(true);
 
-            bool hasEnemy = Random.value < 0.5f;
+            bool hasEnemy = biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfNMI.Evaluate(Random.value) > 0.5f;
             if (hasEnemy)
             {
                 Vector3 position = enemyTemplate.transform.position;

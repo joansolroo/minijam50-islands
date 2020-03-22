@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 5947136924282468099}
   - component: {fileID: 5947136924282468126}
   - component: {fileID: 2987772602948733418}
+  - component: {fileID: 4461521133959640910}
   m_Layer: 10
   m_Name: follower
   m_TagString: Untagged
@@ -497,6 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
+  animationIndex: 0
+  lastAnimation: 0
   timeIdle: 0.3
   animationIdle:
   - {fileID: -943318867982752447, guid: 3710809c1afecf644b0737b639071b70, type: 3}
@@ -518,10 +521,22 @@ MonoBehaviour:
   - {fileID: 793717845376639655, guid: 9d75cc169586ddc45bcc65ff79d1ae6a, type: 3}
   - {fileID: -3265267015815082369, guid: 9d75cc169586ddc45bcc65ff79d1ae6a, type: 3}
   - {fileID: 793717845376639655, guid: 9d75cc169586ddc45bcc65ff79d1ae6a, type: 3}
-  - {fileID: -3075536019353721143, guid: 0fc260c077653344580075c64b048284, type: 3}
-  - {fileID: 488566688391327861, guid: 0fc260c077653344580075c64b048284, type: 3}
-  timeDying: 0.1
-  animationDying: []
+  - {fileID: 2823641108335528069, guid: 3710809c1afecf644b0737b639071b70, type: 3}
+  - {fileID: -943318867982752447, guid: 3710809c1afecf644b0737b639071b70, type: 3}
+  timeDying: 0.2
+  animationDying:
+  - {fileID: 5668150643108241591, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 3143042278289719130, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 5504027360798230106, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: -3891450649735513190, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: -5876290206376307905, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
   slaves: []
 --- !u!114 &2987772602948733418
 MonoBehaviour:
@@ -543,6 +558,25 @@ MonoBehaviour:
   jumping: 0
   distToGround: 0
   combat: 0
+--- !u!114 &4461521133959640910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947136924282468121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39d56160a83dcb43997a3deca76fd40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audiosource: {fileID: 1782008288576010412}
+  animations: {fileID: 5947136924282468126}
+  combatSounds:
+  - {fileID: 8300000, guid: c7d179ae5a2d04c4cb8a0e8e677b1637, type: 3}
+  - {fileID: 8300000, guid: 2e5085c8c11a16f48be28e5803f34df4, type: 3}
+  - {fileID: 8300000, guid: 391d6e3a876cc6a499e88a02eee1e586, type: 3}
+  - {fileID: 8300000, guid: 95e5d5bc47b6bd1468c53807805c0854, type: 3}
 --- !u!1 &7271970795294673876
 GameObject:
   m_ObjectHideFlags: 0
