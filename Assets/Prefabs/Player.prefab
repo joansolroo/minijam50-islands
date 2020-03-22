@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
+  animationIndex: 0
+  lastAnimation: 0
   timeIdle: 0
   animationIdle:
   - {fileID: -3541670456107407741, guid: 66d4ae6eb1d08354489cbd1195daa018, type: 3}
@@ -418,7 +420,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: -943318867982752447, guid: 3710809c1afecf644b0737b639071b70,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -521,7 +523,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 3
+  canMove: 1
   hurt: 0
+  death: 0
   fighting: 0
   hasFollowers: 1
   level: {fileID: 0}
@@ -543,6 +547,7 @@ MonoBehaviour:
   jumping: 0
   velocity: {x: 0, y: 0}
   direction: {x: 0, y: 0, z: 0}
+  retreating: 0
   pickedResources: 
 --- !u!114 &9018713775378621318
 MonoBehaviour:
@@ -557,6 +562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
+  animationIndex: 0
+  lastAnimation: 0
   timeIdle: 0.3
   animationIdle:
   - {fileID: -943318867982752447, guid: 3710809c1afecf644b0737b639071b70, type: 3}
@@ -710,6 +717,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9178978928871811191, guid: db499bd8637f67c41a6f6c96b4b92689,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db499bd8637f67c41a6f6c96b4b92689, type: 3}
 --- !u!4 &5776107148984979610 stripped
@@ -796,6 +808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294848090384265366, guid: a99a4bb593a88594aa98e952bd3bfc44,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a99a4bb593a88594aa98e952bd3bfc44, type: 3}

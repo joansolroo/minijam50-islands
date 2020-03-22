@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PeopleManager : MonoBehaviour
 {
+    [SerializeField] Camp camp;
     [SerializeField] Follower followerTemplate;
     [SerializeField] PlayerAIInput ghostAITemplate;
     [SerializeField] Transform idleContainer;
@@ -57,7 +58,7 @@ public class PeopleManager : MonoBehaviour
             idle.RemoveAt(0);
         }
     }
-    public void RemoveFollower(int idx, List<ResourceType> resourceToCarry)
+    public void FollowerReturnToBase(int idx, List<ResourceType> resourceToCarry)
     {
         var agent = agents[idx];
         agent.transform.parent = idleContainer;
@@ -70,12 +71,15 @@ public class PeopleManager : MonoBehaviour
         foreach (var res in resourceToCarry)
             agent.AddResource(res);
 
+        camp.ProcessPile(agent.pile);
+
         if (agents.Count == 0)
         {
             foreach (Follower f in idle)
                 f.speed = 2.5f * player.speed;
         }
     }
+
     public void AddNewAgent(Vector3 position)
     {
         var newAgent = GameObject.Instantiate<Follower>(followerTemplate);
@@ -131,7 +135,6 @@ public class PeopleManager : MonoBehaviour
         var ghost = GameObject.Instantiate<PlayerAIInput>(ghostAITemplate);
         ghost.transform.position = position;
         ghost.transform.parent = idleContainer;
-       
     }
 
     private void Update()

@@ -19,6 +19,7 @@ public class Camp : MonoBehaviour
 
     public int initialFood = 10;
     public Boat boat;
+    public Color colorTextNegative;
     void Start()
     {
         box = GetComponent<BoxCollider2D>();
@@ -35,29 +36,33 @@ public class Camp : MonoBehaviour
             for (int i = 0; i < hits; i++)
             {
                 ResourcePile resPile = scan[i].collider.gameObject.GetComponent<ResourcePile>();
-                var pileItems = resPile.GetResourceList();
-                foreach (var type in pileItems.Keys)
-                {
-                    if (type == ResourceType.People)
-                    {
-                        for (int p = 0; p < pileItems[type]; ++p)
-                        {
-                            folowerManager.AddNewAgent(followerSpawn.position);
-                        }
-                    }
-                    if (campInventory.ContainsKey(type))
-                        campInventory[type] += pileItems[type];
-                    else campInventory.Add(type, pileItems[type]);
-                }
-                resPile.Clear();
+                resPile.ClearVisuals();
             }
             UpdateGUI();
         }
     }
+    public void ProcessPile(ResourcePile resPile)
+    {
+        var pileItems = resPile.GetResourceList();
+        foreach (var type in pileItems.Keys)
+        {
+            if (type == ResourceType.People)
+            {
+                for (int p = 0; p < pileItems[type]; ++p)
+                {
+                    folowerManager.AddNewAgent(followerSpawn.position);
+                }
+            }
+            if (campInventory.ContainsKey(type))
+                campInventory[type] += pileItems[type];
+            else campInventory.Add(type, pileItems[type]);
+        }
+        resPile.ClearData();
+    }
     void UpdateGUI()
     {
         woodText.text = GetWood().ToString() + "/" + woodGoal.ToString();
-        foodText.text = GetFood().ToString() + "<color=red>-" + folowerManager.GetFollowerCount().ToString() + "</color>";
+        foodText.text = GetFood().ToString() + "<color=#"+ColorUtility.ToHtmlStringRGB(colorTextNegative )+ ">-" + folowerManager.GetFollowerCount().ToString() + "</color>";
     }
     public void NextDay()
     {

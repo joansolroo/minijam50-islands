@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool hasFollowers = true;
 
     [Header("Links")]
-    [SerializeField] Level level;
+    [SerializeField] public Level level;
     [SerializeField] Map map;
     [SerializeField] AnimationController animationController;
     [SerializeField] PlayerResources resources;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
                 {
                     for (; stamina > value; --stamina)
                     {
-                        followers.RemoveFollower(0, pickedResources);
+                        followers.FollowerReturnToBase(0, pickedResources);
                         pickedResources.Clear();
                     }
                 }
@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
     public void TransferResources()
     {
         Debug.LogWarning("Implement the transfer of resources to the main stack.");
-        resources.resourcePile.Clear();
+        resources.resourcePile.ClearVisuals();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

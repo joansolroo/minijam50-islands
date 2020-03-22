@@ -289,7 +289,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -537,6 +537,7 @@ MonoBehaviour:
   - {fileID: 8829041986407598187, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
   - {fileID: -3891450649735513190, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
   - {fileID: -5876290206376307905, guid: 00274fadba2c14c4aacc70c37d0b8b62, type: 3}
+  - {fileID: 0}
   slaves: []
 --- !u!114 &2987772602948733418
 MonoBehaviour:
@@ -555,9 +556,11 @@ MonoBehaviour:
   verticalVelocity: 0
   target: {x: 0, y: 0, z: 0}
   pile: {fileID: 1191451617712991735}
+  canMove: 1
   jumping: 0
   distToGround: 0
   combat: 0
+  alive: 1
 --- !u!114 &4461521133959640910
 MonoBehaviour:
   m_ObjectHideFlags: 0

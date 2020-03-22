@@ -78,15 +78,17 @@ public class ResourcePile : MonoBehaviour
         hands.enabled = true;
     }
 
-    public void Clear()
+    public void ClearData()
     {
-        stack = 0;
-        if(resources.Count != 0)
+        if (resources.Count != 0)
         {
             audiosource.clip = clearSound;
             audiosource.Play();
         }
-
+    }
+    public void ClearVisuals()
+    {
+        stack = 0;
         foreach (ResourcePileTemplate res in resources)
             res.Destroy();
         resources.Clear();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     [Header("Links")]
+    [SerializeField] Game game;
     [SerializeField] DayTime time;
     [SerializeField] PlayerController player;
     [SerializeField] Boat boat;
@@ -70,7 +71,9 @@ public class Level : MonoBehaviour
         }
         if (camp.gameOver)
         {
+            
             loseCover.SetActive(true);
+            game.OnLose();
         }
 
         fightCover.SetActive(player.fighting);

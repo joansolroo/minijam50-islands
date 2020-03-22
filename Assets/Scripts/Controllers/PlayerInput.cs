@@ -14,11 +14,23 @@ public class PlayerInput : MonoBehaviour
     }
     private void Update()
     {
-        player.SetInput(new PlayerController.InputData
+        if (player.level.camp.gameOver)
         {
-            doJump = (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z)),
-            dx = Input.GetAxis("Horizontal"),
-            doInteract = Input.GetKeyDown(collectResource)
-        });
+            player.SetInput(new PlayerController.InputData
+            {
+                doJump = false,
+                dx =0,
+                doInteract = false
+            });
+        }
+        else
+        {
+            player.SetInput(new PlayerController.InputData
+            {
+                doJump = (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z)),
+                dx = Input.GetAxis("Horizontal"),
+                doInteract = Input.GetKeyDown(collectResource)
+            });
+        }
     }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] PlayerController player;
     [SerializeField] Level level;
-
+    [SerializeField] Level levelInstance;
     [SerializeField] GameObject coverScreen;
     [SerializeField] GameObject mainMenu;
-    
+
+    [SerializeField] AudioSource music;
     public enum GameStatus
     {
-        Uninitialized, Cover, Start, Menu, Play, Paused
+        Uninitialized, Cover, Start, Menu, Play, Paused , Over
     }
     GameStatus status = GameStatus.Uninitialized;
     public void Initialize()
@@ -42,32 +42,60 @@ public class Game : MonoBehaviour
                 StartLevel();
             }
         }
+        if(status == GameStatus.Over)
+        {
+            if (Input.anyKeyDown)
+            {
+                StartLevel();
+            }
+        }
     }
     public void StartLevel()
     {
-        level.gameObject.SetActive(true);
-        status = GameStatus.Play;
-        level.Initialize();
-        level.StartLevel();
+        music.pitch = 0.75f;
+        GenerateLevel();
         coverScreen.SetActive(false);
     }
 
     public void RestartLevel()
     {
-        Debug.Log("Restart");
+        StartLevel();
+    }
+    public void GenerateLevel()
+    {
+        var previous = levelInstance;
+        levelInstance = GameObject.Instantiate<Level>(level);
+        levelInstance.gameObject.SetActive(true);
+        if (previous)
+        {
+            GameObject.Destroy(previous.gameObject);
+        }
+        levelInstance.gameObject.SetActive(true);
+        status = GameStatus.Play;
+        levelInstance.Initialize();
+        levelInstance.StartLevel();
     }
 
     public void QuitLevel()
     {
-        Debug.Log("Quit");
+        Application.Quit();
     }
 
     public void OnLose()
     {
         Debug.Log("Lose");
+        music.pitch = 0.4f;
+        StartCoroutine(WaitForEnd(2));
     }
     public void OnWin()
     {
-        
+        music.pitch = 1f;
+        StartCoroutine(WaitForEnd(3));
+    }
+
+    IEnumerator WaitForEnd(float time)
+    {
+        yield return new WaitForSeconds(time);
+        status = GameStatus.Over;
     }
 }
