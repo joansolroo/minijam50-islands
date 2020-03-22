@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         }
         if (body.velocity == Vector2.zero && jumping)
         {
-            transform.position -= fallingFriction * Vector3.up;
+            transform.localPosition -= fallingFriction * Vector3.up;
         }
 
         velocity = new Vector2(input.dx * speed, body.velocity.y);

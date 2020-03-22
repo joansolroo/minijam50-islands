@@ -117,6 +117,7 @@ public class Level : MonoBehaviour
     public void OnWin()
     {
         camp.boat.gameObject.SetActive(false);
+        boatEnding.transform.parent = null;
         boatEnding.gameObject.SetActive(true);
         for (int i = 0; i < boatEnding.slots.Count; i++)
             boatEnding.slots[i] += boatEnding.transform.position;
@@ -126,6 +127,8 @@ public class Level : MonoBehaviour
         StartCoroutine(PlayerMovementEnding());
         camp.folowerManager.enabled = false;
         islandLimit.SetActive(false);
+
+        StartCoroutine(EndCoregraphy());
     }
 
 
@@ -143,17 +146,16 @@ public class Level : MonoBehaviour
     }
     private IEnumerator EndCoregraphy()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
 
         camp.folowerManager.enabled = false;
-        foreach(Follower agent in camp.folowerManager.idle)
+        foreach(Follower agent in camp.folowerManager.agents)
         {
             agent.transform.parent = boatEnding.transform;
-            boatEnding.speed = -1f;
+            agent.canMove = false;
         }
-
+        player.transform.parent = boatEnding.transform;
+        boatEnding.speed = -1f;
         yield return new WaitForSeconds(8f);
-
-
     }
 }

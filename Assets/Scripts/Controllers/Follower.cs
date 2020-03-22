@@ -13,6 +13,7 @@ public class Follower : MonoBehaviour
     private AnimationController animationController;
     public ResourcePile pile;
 
+    public bool canMove = true;
     public bool jumping = false;
     public float distToGround;
     public bool combat = false;
@@ -28,7 +29,7 @@ public class Follower : MonoBehaviour
     void Update()
     {
         Vector3 delta = (target - transform.position).normalized * speed * Time.deltaTime;
-        if ((target - transform.position).sqrMagnitude < 0.001f)
+        if ((target - transform.position).sqrMagnitude < 0.001f || !canMove)
             delta = Vector3.zero;
         if (combat)
             delta.y = 0;
@@ -46,11 +47,13 @@ public class Follower : MonoBehaviour
         
         
         delta = new Vector3(delta.x, verticalVelocity * Time.deltaTime, 0);
-        transform.position += delta;
+        if(canMove)
+            transform.position += delta;
 
         if (lastPosition != transform.position)
         {
-            direction = transform.position - lastPosition;
+            if (canMove)
+                direction = transform.position - lastPosition;
             direction.Normalize();
         }
 
