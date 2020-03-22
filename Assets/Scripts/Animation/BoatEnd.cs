@@ -16,6 +16,6 @@ public class BoatEnd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position -= speed * Time.deltaTime * Vector3.right;
+        transform.localPosition += speed * Time.deltaTime * Vector3.right;
     }
 }
