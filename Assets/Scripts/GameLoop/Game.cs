@@ -44,7 +44,7 @@ public class Game : MonoBehaviour
         }
         if(status == GameStatus.Over)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 StartLevel();
             }

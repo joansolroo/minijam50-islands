@@ -177,5 +177,6 @@ public class Level : MonoBehaviour
         player.transform.parent = boatEnding.transform;
         boatEnding.speed = -1f;
         yield return new WaitForSeconds(8f);
+        boatEnding.speed = 0f;
     }
 }
