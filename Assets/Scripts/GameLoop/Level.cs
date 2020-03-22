@@ -24,7 +24,7 @@ public class Level : MonoBehaviour
     [SerializeField] int seed;
     [SerializeField] int maxDays = 30;
     [SerializeField] Map map;
-    [SerializeField] int[] daySeeds;
+    //[SerializeField] int[] daySeeds;
 
     [Header("Status")]
     [SerializeField] int currentDay = 0;
@@ -42,18 +42,18 @@ public class Level : MonoBehaviour
     {
         if (seed == 0) seed =(int)( Random.value* 65000);
         Random.InitState(seed);
-        daySeeds = new int[maxDays];
+        /*daySeeds = new int[maxDays];
         for (int i = 0; i < maxDays; ++i)
         {
             daySeeds[i] = Random.Range(0, 65000);
 
-        }
+        }*/
         audiosource = GetComponent<AudioSource>();
     }
     public void StartLevel()
     {
         map.level = this;
-        map.Generate(currentDay);
+        map.Generate(seed+currentDay);
     }
     public void StartDay()
     {
@@ -107,7 +107,7 @@ public class Level : MonoBehaviour
         nightCover.SetActive(true);
         ++currentDay;
         time.GoToNight();
-        map.Generate(currentDay);
+        map.Generate(seed + currentDay);
         camp.NextDay();
         player.Rest();
 
