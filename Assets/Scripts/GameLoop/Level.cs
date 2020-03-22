@@ -66,15 +66,19 @@ public class Level : MonoBehaviour
         morningCover.SetActive(false);
         nightCover.SetActive(false);
 
-        if (previousBiome != null && currentBiome == map.startBiome)
+        if(previousBiome == null)
         {
-            player.EnterBase();
-            this.EndDay();
+            // first entry
         }
-        else if (previousBiome == map.startBiome)
+        else if(previousBiome == map.startBiome)
         {
             this.StartDay();
         }
+        else if(previousBiome.position > currentBiome.position)
+        {
+            player.DoRetreat();
+        }
+        
         StateChanged();
     }
     public void EndDay()

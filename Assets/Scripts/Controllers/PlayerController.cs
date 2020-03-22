@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool jumping = false;
     [SerializeField] Vector2 velocity;
     [SerializeField] Vector3 direction;
-
+    [SerializeField] bool retreating = false;
     public List<ResourceType> pickedResources = new List<ResourceType>();
 
     public int Stamina { 
@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviour
                         followers.RemoveFollower(0, pickedResources);
                         pickedResources.Clear();
                     }
+                }
+                if(stamina <= 0)
+                {
+                    retreating = true;
                 }
             }
             else
@@ -90,6 +94,16 @@ public class PlayerController : MonoBehaviour
     {
         hurt = false;
         Stamina = Mathf.Max(1, Stamina);
+        if (retreating)
+        {
+            retreating = false;
+            level.EndDay();
+        }
+        StateChanged();
+    }
+    public void DoRetreat()
+    {
+        retreating = true;
     }
     public void Rest()
     {
@@ -110,7 +124,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Stamina <= 0)
+        if (retreating)
         {
             input.dx = -2;
         }
@@ -163,7 +177,11 @@ public class PlayerController : MonoBehaviour
 
     public bool CanInteract()
     {
-        return currentBiome != null && !currentBiome.enemy && currentBiome.HasResource;
+        return !retreating && currentBiome != null && !currentBiome.enemy && currentBiome.HasResource;
+    }
+    public bool CanContinue()
+    {
+        return !retreating && stamina > 0;
     }
     public bool AtBase()
     {

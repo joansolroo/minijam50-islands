@@ -99,7 +99,7 @@ public class PeopleManager : MonoBehaviour
     public int GetIndex(int followerId)
     {
         int spacing = Mathf.Min(actionDelay, (int)(100 / (1 + (float)agents.Count)));
-        return Mathf.Clamp((int)((followerId+2)* spacing), actionDelay,100-1);
+        return Mathf.Clamp((int)((followerId+2)* spacing), actionDelay,Mathf.Clamp(playerPositions.Count-1,5,99));
     }
 
     private void Update()

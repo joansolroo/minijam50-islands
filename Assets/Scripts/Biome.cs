@@ -6,7 +6,7 @@ public class Biome : MonoBehaviour
 {
     public Map map;
     public BiomeData data;
-
+    public int position;
     public string activationTag = "Player";
     public EnemyController enemy;
 

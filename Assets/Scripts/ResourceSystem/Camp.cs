@@ -84,4 +84,16 @@ public class Camp : MonoBehaviour
     {
         return campInventory.ContainsKey(ResourceType.Wood) ? campInventory[ResourceType.Wood] : 0;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            var player = collision.gameObject.GetComponent<PlayerController>();
+            if (player)
+            {
+                player.EnterBase();
+            }
+        }
+    }
 }

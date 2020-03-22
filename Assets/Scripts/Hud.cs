@@ -40,7 +40,7 @@ public class Hud : MonoBehaviour
         //buttonRetreat.SetActive(player.)
         buttonInteract.SetActive(player.CanInteract());
         buttonRetreat.SetActive(!player.AtBase());
-        buttonNext.SetActive(player.Stamina > 0);
+        buttonNext.SetActive(player.CanContinue());
     }
     private void UpdateDayTime()
     {

@@ -72,7 +72,7 @@ public class Map : MonoBehaviour
 
         biomes.Add(startBiome);
         startBiome.map = this;
-
+        startBiome.position = 0;
         int numberOfBiomePerDifficultyLevel = numberOfBiome / biomeLevels.Count;
 
         for (int i = 0; i < numberOfBiome; i++)
@@ -81,6 +81,7 @@ public class Map : MonoBehaviour
             Biome b = Instantiate(template);
             //setting up the value
             b.SetValue(biomeLevels[i / numberOfBiomePerDifficultyLevel].rangeOfResources.Evaluate(Random.value));
+            b.position = i+1;
             b.name = "["+i+"]"+template.name;
             b.map = this;
             biomes.Add(b);
@@ -102,6 +103,7 @@ public class Map : MonoBehaviour
         }
         biomes.Add(endBiome);
         endBiome.map = this;
+        endBiome.position = numberOfBiome;
     }
 }
 
