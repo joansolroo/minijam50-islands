@@ -87,12 +87,14 @@ public class PeopleManager : MonoBehaviour
             newAgent.speed = 2f * player.speed;
     }
 
-    public void EngageCombat(List<Vector3> positions)
+    public void EngageCombat(List<Vector3> positions, bool combat = true)
     {
+        int i = 0;
         foreach (Follower agent in agents)
         {
-            agent.target = positions[Random.Range(0, positions.Count)];
-            agent.combat = true;
+            agent.target = positions[i];
+            agent.combat = combat;
+            i = (i+1)% positions.Count;
         }
     }
 
