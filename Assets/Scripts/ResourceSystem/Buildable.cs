@@ -21,7 +21,7 @@ public abstract class Buildable : MonoBehaviour
         set
         {
             progress = value;
-            renderer.sprite = buildSprites[(int)(buildSprites.Length * progress)];
+            renderer.sprite = buildSprites[(int)((buildSprites.Length-1) * progress)];
         }
     }
     /*public void Upgrade(float woodValue)

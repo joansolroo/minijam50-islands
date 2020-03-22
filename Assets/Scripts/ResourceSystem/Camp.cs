@@ -65,7 +65,7 @@ public class Camp : MonoBehaviour
             if (campInventory[ResourceType.Food] <= 0)
                 gameOver = true;
             if (campInventory.ContainsKey(ResourceType.Wood)) {
-                boat.Progress = campInventory[ResourceType.Wood] / (float)woodGoal;
+                boat.Progress = Mathf.Clamp01(campInventory[ResourceType.Wood] / (float)woodGoal);
                 if (campInventory[ResourceType.Wood] >= woodGoal)
                 {
                     win = true;
